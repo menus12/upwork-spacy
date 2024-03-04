@@ -1,0 +1,61 @@
+{
+    "summary": "Senior systems engineer with extensive experience in networking, virtualization, cloud computing and infrastructure operations automation. Major area of expertise is modeling infrastructure environments and assessing infrastructure operational performance.",
+    "experience": {
+        "0": {
+            "title": "Senior DevOps engineer",
+            "company": "Valletta Software Development LTD",
+            "start_date": "",
+            "end_date": "",
+            "description": "\nOutsourcing cloud infrastructure for internal and external customers and projects.\n\nEngineered technical solutions:\n●\tMigration of AI-powered chatbot and task management platform infrastructure from Vercel to AWS.\n●\tCommissioning of self-hosted secure, redundant, and scalable mail server in cloud environment.\n●\tR&D and integration of Identity-as-a-service into automated AI performance hiring software.\n\nInternal projects:\n●\tReengineering of existing CI/CD infrastructure for development and production environments.\n●\tAudit of the company's existing virtual infrastructure with subsequent visualization and documentation of key elements.\n●\tDeployment of the company's virtual infrastructure monitoring based on Grafana, Prometheus, Blackbox exporter and Loki.\n●\tDeployment of VPN gateway for entire enterprise.\n\nExternal projects:\n●\tDesign and implementation of a PoC to migrate a cloud surveillance application microservice architecture (150 microservices) from a Docker Compose environment (Portainer) to a Kubernetes cluster using Helm and ArgoCD.\n●\tAudit of the current infrastructure of a microservice fintech application in AWS with subsequent visualization and documentation of key infrastructure components.\n",
+            "technologies": "Amazon Web Services, CI/CD, Docker, Kubernetes, Grafana, Prometheus, Helm, Bitbucket, Jira, Confluence, Vanta, Terraform"
+        },
+        "1": {
+            "title": "CEO, CTO",
+            "company": "NSALAB ",
+            "start_date": "",
+            "end_date": "",
+            "description": "Outsourcing cloud infrastructure for internal and external customers and projects.\n\nEngineered technical solutions:\n●\tMigration of AI-powered chatbot and task management platform infrastructure from Vercel to AWS.\n●\tCommissioning of self-hosted secure, redundant, and scalable mail server in cloud environment.\n●\tR&D and integration of Identity-as-a-service into automated AI performance hiring software.\n\nInternal projects:\n●\tReengineering of existing CI/CD infrastructure for development and production environments.\n●\tAudit of the company's existing virtual infrastructure with subsequent visualization and documentation of key elements.\n●\tDeployment of the company's virtual infrastructure monitoring based on Grafana, Prometheus, Blackbox exporter and Loki.\n●\tDeployment of VPN gateway for entire enterprise.\n\nExternal projects:\n●\tDesign and implementation of a PoC to migrate a cloud surveillance application microservice architecture (150 microservices) from a Docker Compose environment (Portainer) to a Kubernetes cluster using Helm and ArgoCD.\n●\tAudit of the current infrastructure of a microservice fintech application in AWS with subsequent visualization and documentation of key infrastructure components.",
+            "technologies": "Microsoft Azure, Python, pyATS, Terraform, GitHub Actions, Linux, Docker, Kubernetes"
+        },
+        "2": {
+            "title": "Information infrastructure auditor",
+            "company": "Tyumen Science Center SB RAS",
+            "start_date": "",
+            "end_date": "",
+            "description": "Conducting an information infrastructure audit of the Research Center and its affiliates.  Tasks: ● Identification of the current state of the structured cabling network, data transmission network, server infrastructure, automated workstation infrastructure, corporate and infrastructure services. ● Analyzing the configuration of network equipment. ● Scanning of internal and external address space to identify information security threats.  Results: ● Visualized schemes of switching and routing domains. ● Recommendations on data transmission network modernization were given. ● Recommendations on consolidation of internal address space and address space of own BGP autonomous system were given. ● Eliminated current threats to information security",
+            "technologies": "BIND, Postfix, BGP, FreeBSD, Altlinux, Microsoft Visio, Nmap"
+        },
+        "3": {
+            "title": "National expert in ICT",
+            "company": "WorldSkills Russia",
+            "start_date": "",
+            "end_date": "",
+            "description": "Representing national ICT expert community and cooperating with representatives from other countries to develop, organize and participate in international ICT competitions.  Tasks: ● Developing international professional and educational standards. ● Developing test projects and assessment methodologies for complex ICT scenarios.  ● Preparing the national team for participation in WorldSkills International and WorldSkills Europe professional skills competitions in ICT competences. ● Arranging technical infrastructure for domestic and international ICT competitions. ● Arranging international training events. ● Guiding national expert community on national ICT standards development. ● Conducting technical webinars peer from other countries on the modern information technology scope.  Results: ● Bronze in \"ICT specialists\" competition, WorldSkills Europe, Gothenburg, 2016 ● Gold in \"IT Network Systems Administration\" competition, WorldSkills International, Abu Dhabi, 2017 ● Gold in \"ICT specialists\" competition, WorldSkills Europe, Budapest, 2018 ● Gold in \"IT Network Systems Administration\" competition, Global Skills Challenge, Melbourne, 2019 ● Bronze in \"Cloud Computing\" competition, Global Skills Challenge, Melbourne, 2019 ● Medal of excellence in \"IT Network Systems Administration\" competition, WorldSkills International, Kazan, 2019 ● Medal of excellence in \"Cloud Computing\" competition, WorldSkills International, Kazan, 2019 ● Gold in \"Cyber Security\" competition, WorldSkills International, Kazan, 2019 ● Bronze in \"ICT specialists\" competition, WorldSkills Europe, Graz, 2021",
+            "technologies": "Cisco Modeling Labs, Linux, Windows Server, VMware SDDC, Microsoft Azure, Terraform, Ansible, Infrastructure greenfield deployment, Brownfield infrastructure troubleshooting, Deployment automation and IaC, Infrastructure audit"
+        },
+        "4": {
+            "title": "Department Head",
+            "company": "Laboratory of Network and System Administration (Tyumen State University)",
+            "start_date": "",
+            "end_date": "",
+            "description": "Leading and promoting a special department for IT talent development and positioning the university as a leader in IT education in Russia and abroad.  Tasks: ● Creating technological and organizational facilities for young talents to let them demonstrate their proficiency at international professional skills competitions. ● Guiding the engineering team to commission and support private cloud. ● Developing effective solutions for deployment automation and orchestration of virtual environments to model different scenarios of converged information infrastructures. ● C-level communication with university executives on laboratory's strategic goals and performance indicators. ● Managing departmental operations including personnel, budget and contracting activities. ● Handling of procurement procedures and cooperation with external vendors.  Results: ● Successful development and implementation of a scalable private cloud to improve the quality and speed of complex on-premises infrastructure modeling. ● Successful implementation of the technical infrastructure for international ICT skills assessment events in the UAE, Germany, UK, China, Canada, India, Kazakhstan and Russia",
+            "technologies": "Cisco UCS, Cisco Nexus, Dell SC, IBM BladeCenter H, VMware ESXi, VMware vCenter, VMware vSAN, VMware Horizon View, PowerShell, PowerCLI, Windows Server (Active Directory, DNS, DHCP, DFS, WDS), Linux"
+        },
+        "5": {
+            "title": "Senior System Engineer",
+            "company": "Vindex LLC",
+            "start_date": "",
+            "end_date": "",
+            "description": "Commissioning and maintenance of the geo-distributed network infrastructures for various customers.  Tasks: ● Supporting deployments of new services, systems, applications and architectures for existing and new customers ● Assisting in equipment evaluations, equipment selection, pilot testing and network designs to ensure reliability and scaled expansion of the network. ● Resolving outage and trouble conditions on network platforms. ● Providing technical operations support and consultation to field technical operations teams. ● Providing detailed engineering support and consultation to other departments such as construction planners and sales. ● Developing network element technical specifications. ● Configuring router and switch technologies. ● Developing methods and procedures for network equipment migration. ● Establishing network performance measurements and goals. ● Assessing and defining testing strategy and test cases  Results: ● Successful commissioning of data network infrastructure for financial organization, setting up network interaction and security conditions for information exchange with the Central Bank. ● Conducting an audit of a large retailer's network infrastructure (10 branches), drawing up recommendations for modernization, successful implementation of the modernization plan. ● Audit of local network and WAN infrastructure for a large construction corporation (20 branches in 11 time zones), development and successful implementation of a DMVPN reengineering plan and end-to-end IP-addressing plan ",
+            "technologies": "VTP, DTP, STP, RSTP, RPVST, MST, LACP, PAgP, MPLS, PPP, PPPoE, Frame-Relay, BGP, RIP, OSPFv2, EIGRP, RIP-ng, OSPFv3, EIGRPv6, MP-BGP, HSRP, GLBP, VRRP, Port-security, ACL, DHCP snooping, RADIUS, Dynamic ARP Inspection, Routing authentication, GRE tunneling, PPTP client server, Client-based RA VPN, mGRE tunneling, IKEv1 VPN, Clientless RA VPN, IKEv2 VPN, DMVPN"
+        },
+        "6": {
+            "title": "Associate Lecturer",
+            "company": "Department of Information Security (Tyumen State University)",
+            "start_date": "",
+            "end_date": "",
+            "description": "Serving as an instructor for the university-based Cisco Networking Academy during graduate study.  Tasks: ● Conducting research in practical education automation for departmental courses. ● Organizing departmental events for independent qualification assessment. ● Engaging students in scholarly activities. ● Supervising and guide undergraduate students for final thesis projects. ● Teaching graduate and undergraduate courses in accordance with CCNA R&S and CCNA Security industrial certification programs. Results: ● Reaching 65-75% of students qualified for the industry exam. ● Reaching 75-85% of students passed the exam on the first attempt and received CCNA R&S and CCNA Security industry certifications. ● Development and successful integration of NMS for training pods rotation automation. ",
+            "technologies": ".NET C#, XMPP, PowerShell, PowerCLI, Cisco Packet Tracer, Cisco Catalyst 2900, Cisco ISR 2800, Cisco ASA 5500"
+        }
+    }
+}
