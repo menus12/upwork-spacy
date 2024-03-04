@@ -25,8 +25,14 @@ f = open(args.file)                 # Opening JSON file
 source_file = json.loads(f.read())  # returns JSON object as  a dictionary
 f.close()                           # Closing file
 
+f = open("dumps/example_cv.json")   # Opening JSON file
+cv = json.loads(f.read())           # returns JSON object as  a dictionary
+f.close()                           # Closing file
+
+
 print ('File is ' + args.file)
 print ('---')
+
 
 
 
