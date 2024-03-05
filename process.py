@@ -6,6 +6,8 @@ import json
 import re
 import argparse
 import datetime
+import html
+import csv
 
 #spacy
 import spacy
@@ -54,7 +56,7 @@ if args.file == None:
     exit(1)
 
 nlp = spacy.load("en_core_web_lg")
-skill_pattern_path = "kaggle/jz_skill_patterns.jsonl"
+skill_pattern_path = "jz_skill_patterns.jsonl"
 
 ruler = nlp.add_pipe("entity_ruler")
 ruler.from_disk(skill_pattern_path)
@@ -89,6 +91,17 @@ def clear_text(text):
     review = " ".join(review)
     return review
 
+def match_score_skills(required_skills, position_skills):
+    score = 0
+    for x in required_skills:
+        if x in position_skills:
+            score += 1
+    req_skills_len = len(required_skills)
+    if req_skills_len > 0:
+        match = round(score / req_skills_len * 100, 1)
+        return match
+    else: return 0
+
 start_time = datetime.datetime.now()
 
 print ('--- Loading data')
@@ -105,15 +118,46 @@ f.close()                           # Closing file
 print ('File is ' + args.file)
 print ('---')
 
+# Parsing CV data
+
+cv['total_skills'] = []
+
+for i in cv['experience']:
+    # cleaning description
+    cv['experience'][i]['clean_description'] = clear_text(cv['experience'][i]['description'])
+    
+    # extracting any other skills
+    cv['experience'][i]['skills'] = get_skills(cv['experience'][i]["clean_description"].lower() + ' ' +  cv['experience'][i]["technologies"].lower())
+    cv['experience'][i]['skills'] = unique_skills(cv['experience'][i]['skills'])
+    for skill in  cv['experience'][i]['skills']:
+        cv['total_skills'].append(skill)
+
+# Plotting CV skills
+fig = px.histogram(
+    x=cv['total_skills'],
+    labels={"x": "Skills"},
+    title="Distribution of Skills for CV",
+).update_xaxes(categoryorder="total descending")
+#fig.show()
+
+# Parsing projects data
+
 total_skills = []
+docs = []
 
 for project in source_file:
+    if project['id'] > 500:
+        continue
+    
+    # fix encoding
+    project['description'] = html.unescape(project['description'])
+    
     # separate rate
     rate_re = '\$\d+-\$\d+'
     if "Rate not defined" in project['description']:
         project['rate_min']  = None
         project['rate_max']  = None
-        re.sub('Rate not defined', " ", project['description'])
+        project['description'] = re.sub('Rate not defined', " ", project['description'])
     rate = re.findall(rate_re, project['description'])
     if len(rate) > 0:
         project['rate_min']  = re.sub('\$','', rate[0].split('-')[0])
@@ -137,26 +181,53 @@ for project in source_file:
     project['description'] = re.sub(cat_re, " ", project['description'])
 
     # cleaning description
-    #project['clean_description'] = clear_text(project['description'])
-    project['clean_description'] = project['description']
+    project['clean_description'] = clear_text(project['description'])
+    docs.append(project['clean_description'])
+    #project['clean_description'] = project['description']
     
-    # checking for other skills
+    # extracting any other skills
     project['skills'] = get_skills(project["clean_description"].lower() + ' ' + project["technologies"].lower())
     project['skills'] = unique_skills(project['skills'])
     for skill in project['skills']:
         total_skills.append(skill)
 
+
+# Computing skills and description relevance
+project_position_relevance = []
+with open('relevance.csv', 'w', newline='') as file:
+    writer = csv.writer(file)
+    writer.writerow(['project_id', 'cv_id', 'cv_position_id', 'skills_match', 'similarity'])
+    for project in source_file:
+        if project['id'] > 500:
+            continue
+        for i in cv['experience']:
+            proj_desc = nlp(project['clean_description'])
+            pos_desc = nlp(cv['experience'][i]['clean_description'])
+            proj_skills = nlp(" ".join(project['skills']))
+            pos_skills = nlp(" ".join(cv['experience'][i]['skills']))
+            entry = [project['id'], 
+                0, # cv_id
+                i, # cv position id
+                proj_skills.similarity(pos_skills),
+                #match_score_skills(project['skills'], cv['experience'][i]['skills']),
+                proj_desc.similarity(pos_desc)]
+            project_position_relevance.append(entry)
+            writer.writerow(entry)
+
+
+    
+
 # Plotting Project Categories
 fig = px.histogram(
     source_file, x="category", title="Distribution of Project Categories"
 ).update_xaxes(categoryorder="total descending")
-fig.show()
+#fig.show()
 
 # Plotting Project Countries
 fig = px.histogram(
     source_file, x="country", title="Distribution of Countries"
 ).update_xaxes(categoryorder="total descending")
-fig.show()
+#fig.show()
 
 # Plotting Project skills
 fig = px.histogram(
@@ -164,64 +235,31 @@ fig = px.histogram(
     labels={"x": "Skills"},
     title="Distribution of Skills",
 ).update_xaxes(categoryorder="total descending")
-fig.show()
+#fig.show()
 
-df = pd.read_csv("kaggle/Resume/Resume.csv")
-df = df.reindex(np.random.permutation(df.index))
-data = df.copy().iloc[0:20,]
+print ('--- Topic Modeling - LDA')
 
-print ('--- Cleaning data')
-clean = []
-for i in range(data.shape[0]):
-    review = re.sub(
-        '(@[A-Za-z0-9]+)|([^0-9A-Za-z \t])|(\w+:\/\/\S+)|^rt|http.+?"',
-        " ",
-        data["Resume_str"].iloc[i],
-    )
-    review = review.lower()
-    review = review.split()
-    lm = WordNetLemmatizer()
-    review = [
-        lm.lemmatize(word)
-        for word in review
-        if not word in set(stopwords.words("english"))
-    ]
-    review = " ".join(review)
-    clean.append(review)
+#docs = data["Clean_Resume"].values
+dictionary = corpora.Dictionary(d.split() for d in docs)
+bow = [dictionary.doc2bow(d.split()) for d in docs]
+lda = gensim.models.ldamodel.LdaModel
+num_topics = 10
+ldamodel = lda(
+    bow, 
+    num_topics=num_topics, 
+    id2word=dictionary, 
+    passes=50, 
+    minimum_probability=0
+)
+#ldamodel.print_topics(num_topics=num_topics)
+for i in range(0, ldamodel.num_topics):
+    print(ldamodel.print_topic(i))
 
-data["Clean_Resume"] = clean
+#pyLDAvis.enable_notebook()
+visualisation = pyLDAvis.gensim_models.prepare(ldamodel, bow, dictionary)
+pyLDAvis.save_html(visualisation, 'LDA_Visualization.html') 
 
-print ('--- Extracting skills')
-data["skills"] = data["Clean_Resume"].str.lower().apply(get_skills)
-data["skills"] = data["skills"].apply(unique_skills)
 
-# fig = px.histogram(
-#     data, x="Category", title="Distribution of Jobs Categories"
-# ).update_xaxes(categoryorder="total descending")
-# fig.show()
-
-Job_Cat = data["Category"].unique()
-Job_Cat = np.append(Job_Cat, "ALL")
-
-Job_Category = "ALL"
-Total_skills = []
-if Job_Category != "ALL":
-    fltr = data[data["Category"] == Job_Category]["skills"]
-    for x in fltr:
-        for i in x:
-            Total_skills.append(i)
-else:
-    fltr = data["skills"]
-    for x in fltr:
-        for i in x:
-            Total_skills.append(i)
-
-fig = px.histogram(
-    x=Total_skills,
-    labels={"x": "Skills"},
-    title=f"{Job_Category} Distribution of Skills",
-).update_xaxes(categoryorder="total descending")
-fig.show()
 
 # print ('--- Most used words')
 
@@ -276,28 +314,8 @@ for i in data["Clean_Resume"].values:
     print(f"The current Resume is {match}% matched to your requirements")
     print(resume_skills)
 
-print ('--- Topic Modeling - LDA')
 
-docs = data["Clean_Resume"].values
-dictionary = corpora.Dictionary(d.split() for d in docs)
-bow = [dictionary.doc2bow(d.split()) for d in docs]
-lda = gensim.models.ldamodel.LdaModel
-num_topics = 4
-ldamodel = lda(
-    bow, 
-    num_topics=num_topics, 
-    id2word=dictionary, 
-    passes=50, 
-    minimum_probability=0
-)
-#ldamodel.print_topics(num_topics=num_topics)
-for i in range(0, ldamodel.num_topics):
-    print(ldamodel.print_topic(i))
-
-#pyLDAvis.enable_notebook()
-visualisation = pyLDAvis.gensim_models.prepare(ldamodel, bow, dictionary)
-pyLDAvis.save_html(visualisation, 'LDA_Visualization.html') 
-
+        
 print ('---')
 end_time = datetime.datetime.now()
 print ('Script has been running for ' + str((end_time - start_time).seconds // 60) + ' minutes ' + str((end_time - start_time).seconds % 60) + ' seconds')
