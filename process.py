@@ -48,15 +48,20 @@ warnings.filterwarnings('ignore')
 parser = argparse.ArgumentParser(description='Upwork data processor')    
 parser.add_argument('--jobs', type=str, help='Projects dump from database')
 parser.add_argument('--cv', type=str, help='Structured CVs file')
-parser.add_argument('--update', type=bool, help='Update metadata (default is False)')
+parser.add_argument('--random', type=int, help='Randomly pick N jobs from dump')
+parser.add_argument('--draw_skills', type=str, help='Filename to CV skills distribution')
+parser.add_argument('--draw_categories', type=str, help='Filename to draw job categories distribution')
+parser.add_argument('--draw_countries', type=str, help='Filename to draw job countries distribution')
+parser.add_argument('--draw_topics', type=str, help='Filename to draw topic modeling distribution')
+parser.add_argument('--num_topics', type=int, help='Number of topics to model')
 args = parser.parse_args()
 
-if args.update == None:
-    args.update = False
-
-if args.file == None:
+if args.jobs == None | args.cv == None:
     print (parser.print_help())
     exit(1)
+    
+if args.random == None:
+    args.random = 0
 
 nlp = spacy.load("en_use_lg")
 skill_pattern_path = "jz_skill_patterns.jsonl"
@@ -113,16 +118,18 @@ start_time = datetime.datetime.now()
 
 print ('--- Loading data')
 
-f = open(args.file)                 # Opening JSON file
+f = open(args.jobs)                 # Opening JSON file
 source_file = json.loads(f.read())  # returns JSON object as  a dictionary
+print ('Jobs file is ' + args.file)
 f.close()                           # Closing file
 
-f = open("dumps/example_cv.json")   # Opening JSON file
+f = open(args.cv)   # Opening JSON file
 cv = json.loads(f.read())           # returns JSON object as  a dictionary
+print ('CVs file is ' + args.cv)
 f.close()                           # Closing file
 
 
-print ('File is ' + args.file)
+
 print ('---')
 
 # Parsing CV data
@@ -139,13 +146,6 @@ for i in cv['experience']:
     for skill in  cv['experience'][i]['skills']:
         cv['total_skills'].append(skill)
 
-# Plotting CV skills
-fig = px.histogram(
-    x=cv['total_skills'],
-    labels={"x": "Skills"},
-    title="Distribution of Skills for CV",
-).update_xaxes(categoryorder="total descending")
-#fig.show()
 
 # Parsing projects data
 
@@ -224,6 +224,15 @@ with open('relevance.csv', 'w', newline='') as file:
                 proj_desc.similarity(pos_desc)]
             project_position_relevance.append(entry)
             writer.writerow(entry)
+
+
+# Plotting CV skills
+fig = px.histogram(
+    x=cv['total_skills'],
+    labels={"x": "Skills"},
+    title="Distribution of Skills for CV",
+).update_xaxes(categoryorder="total descending")
+#fig.show()
 
 
 # Plotting Project Categories
