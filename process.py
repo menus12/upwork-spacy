@@ -54,7 +54,8 @@ parser.add_argument('--draw_categories', type=str, help='Filename to draw job ca
 parser.add_argument('--draw_countries', type=str, help='Filename to draw job countries distribution')
 parser.add_argument('--draw_topics', type=str, help='Filename to draw topic modeling distribution')
 parser.add_argument('--num_topics', type=int, help='Number of topics to model')
-parser.add_argument('--relevance_table', type=str, help='Filename to save relevance CSV table')
+parser.add_argument('--skills_relevance', type=int, help='Threshold for skills relevance')
+parser.add_argument('--csv', type=str, help='Filename to save relevance CSV table')
 args = parser.parse_args()
 
 if args.jobs == None or args.cv == None:
@@ -63,6 +64,11 @@ if args.jobs == None or args.cv == None:
     
 if args.random == None:
     args.random = 0
+
+if args.skills_relevance == None:
+    args.skills_relevance = 0
+else: 
+    print("Skill relevance threshold: " + str(args.skills_relevance))
 
 nlp = spacy.load("en_use_lg")
 skill_pattern_path = "jz_skill_patterns.jsonl"
@@ -152,10 +158,12 @@ joblist = [x for x in range(0, len(source_file))]
 if args.random > 0:
     joblist = []
     for i in range(0, args.random):
-        n = random.randint(0, len(source_file))
+        n = random.randint(0, len(source_file)-1)
         if n not in joblist:
             joblist.append(n)
-        else: i -= 1
+        else: joblist.append(n + 1)
+    print("Picking " + str(args.random) + " IDs from jobs file:")
+    print(", ".join(str(x) for x in joblist))
     
 total_skills = []
 docs = []
@@ -209,36 +217,52 @@ for project in source_file:
     for skill in project['skills']:
         total_skills.append(skill)
         
-    print("ID:" + str(project['id']) + " | " + 
-          project['title'] + 
-          " | Skills: " + ", ".join(project['skills']) + 
-          " | Category: " + project['category'])
+    # print("ID:" + str(project['id']) + " | " + 
+    #       project['title'] + 
+    #       " | Skills: " + ", ".join(project['skills']) + 
+    #       " | Category: " + project['category'])
 
-print ('--- Match Score')
+print ('--- Computing skills and description relevance')
 
-# Computing skills and description relevance
 project_position_relevance = []
-with open('relevance.csv', 'w', newline='') as file:
-    writer = csv.writer(file)
-    writer.writerow(['project_id', 'cv_id', 'cv_position_id', 'skills_match', 'similarity'])
-    for project in source_file:
-        # if project['id'] > 500:
-        #     continue
-        for i in cv['experience']:
-            proj_desc = nlp(project['clean_description'])
-            pos_desc = nlp(cv['experience'][i]['clean_description'])
+
+for project in source_file:
+    if project['id'] not in joblist:
+        continue
+    for person in cv:
+        for exp in person['experience']:
             proj_skills = nlp(" ".join(project['skills']))
-            pos_skills = nlp(" ".join(cv['experience'][i]['skills']))
-            entry = [project['id'], 
-                0, # cv_id
-                i, # cv position id
-                proj_skills.similarity(pos_skills),
-                #match_score_skills(project['skills'], cv['experience'][i]['skills']),
-                proj_desc.similarity(pos_desc)]
-            project_position_relevance.append(entry)
+            pos_skills = nlp(" ".join(exp['skills']))
+            skills_sim = proj_skills.similarity(pos_skills)
+            if round(skills_sim * 100, 2) > args.skills_relevance:
+                proj_desc = nlp(project['clean_description'])
+                pos_desc = nlp(exp['clean_description'])
+                desc_sim = proj_desc.similarity(pos_desc)
+                entry = [project['id'], 
+                    person['id'], # cv_id
+                    exp['id'], # cv position id
+                    skills_sim,
+                    #match_score_skills(project['skills'], cv['experience'][i]['skills']),
+                    desc_sim]
+                project_position_relevance.append(entry)
+                print("ID: " + str(project['id']) + " | " + 
+                    project['title'] + 
+                    " | Skills: " + ", ".join(project['skills']) + 
+                    " | Category: " + project['category'])
+                print("  -->" + str(project['id']) + 
+                    " | " + person['name'] + 
+                    " | " + exp['title'] + 
+                    " | Skills match: " + str(round(skills_sim * 100, 2)) + 
+                    "% | Desc match: " + str(round(desc_sim * 100, 2)) + "%")
+
+if args.csv is not None:
+    print ('--- Saving relevance table in ' + args.csv)
+    with open(args.csv, 'w', newline='') as file:
+        writer = csv.writer(file)
+        writer.writerow(['project_id', 'cv_id', 'cv_position_id', 'skills_match', 'similarity'])
+        for entry in project_position_relevance:
             writer.writerow(entry)
-
-
+        
 # Plotting CV skills
 fig = px.histogram(
     x=cv['total_skills'],
