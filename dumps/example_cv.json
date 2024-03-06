@@ -1,7 +1,7 @@
 [
     {
         "id": 0,
-        "Name": "Aleksandr Gorbachev",
+        "name": "Aleksandr Gorbachev",
         "summary": "Senior systems engineer with extensive experience in networking, virtualization, cloud computing and infrastructure operations automation. Major area of expertise is modeling infrastructure environments and assessing infrastructure operational performance.",
         "experience": [
             {            
