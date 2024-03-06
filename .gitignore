@@ -1,4 +1,5 @@
 .vscode/launch.json
 kaggle/*
-LDA_Visualization.html
+./*.html
 relevance.csv
+
