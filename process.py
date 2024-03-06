@@ -54,6 +54,7 @@ parser.add_argument('--draw_categories', type=str, help='Filename to draw job ca
 parser.add_argument('--draw_countries', type=str, help='Filename to draw job countries distribution')
 parser.add_argument('--draw_topics', type=str, help='Filename to draw topic modeling distribution')
 parser.add_argument('--num_topics', type=int, help='Number of topics to model')
+parser.add_argument('--relevance_table', type=str, help='Filename to save relevance CSV table')
 args = parser.parse_args()
 
 if args.jobs == None | args.cv == None:
