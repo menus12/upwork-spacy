@@ -283,6 +283,8 @@
 {"label":"SKILL","pattern":[{"LOWER":"chemometrics"}]}
 {"label":"SKILL","pattern":[{"LOWER":"chrome"}]}
 {"label":"SKILL","pattern":[{"LOWER":"chrome"},{"LOWER":"extension"}]}
+{"label":"SKILL","pattern":[{"LOWER":"ci/cd"}]}
+{"label":"SKILL","pattern":[{"LOWER":"ci\\cd"}]}
 {"label":"SKILL","pattern":[{"LOWER":"circleci"}]}
 {"label":"SKILL","pattern":[{"LOWER":"circumscription"}]}
 {"label":"SKILL","pattern":[{"LOWER":"civil"},{"LOWER":"engineering"}]}
@@ -1579,6 +1581,7 @@
 {"label":"SKILL","pattern":[{"LOWER":"queueing"},{"LOWER":"theory"}]}
 {"label":"SKILL","pattern":[{"LOWER":"qunit"}]}
 {"label":"SKILL","pattern":[{"TEXT":"R"}]}
+{"label":"SKILL","pattern":[{"LOWER":"r&d"}]}
 {"label":"SKILL","pattern":[{"LOWER":"rabbitmq"}]}
 {"label":"SKILL","pattern":[{"LOWER":"rackspace"},{"LOWER":"cloud"},{"LOWER":"servers"}]}
 {"label":"SKILL","pattern":[{"LOWER":"rails"}]}
