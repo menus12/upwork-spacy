@@ -49,7 +49,8 @@ parser = argparse.ArgumentParser(description='Upwork data processor')
 parser.add_argument('--jobs', type=str, help='Projects dump from database')
 parser.add_argument('--cv', type=str, help='Structured CVs file')
 parser.add_argument('--random', type=int, help='Randomly pick N jobs from dump')
-parser.add_argument('--draw_skills', type=str, help='Filename to CV skills distribution')
+parser.add_argument('--draw_cv_skills', type=str, help='Filename to CV skills distribution')
+parser.add_argument('--draw_jobs_skills', type=str, help='Filename to CV skills distribution')
 parser.add_argument('--draw_categories', type=str, help='Filename to draw job categories distribution')
 parser.add_argument('--draw_countries', type=str, help='Filename to draw job countries distribution')
 parser.add_argument('--draw_topics', type=str, help='Filename to draw topic modeling distribution')
@@ -255,42 +256,50 @@ for project in source_file:
                     " | Skills match: " + str(round(skills_sim * 100, 2)) + 
                     "% | Desc match: " + str(round(desc_sim * 100, 2)) + "%")
 
-if args.csv is not None:
+if 'csv' in args.__dict__:
     print ('--- Saving relevance table in ' + args.csv)
     with open(args.csv, 'w', newline='') as file:
         writer = csv.writer(file)
         writer.writerow(['project_id', 'cv_id', 'cv_position_id', 'skills_match', 'similarity'])
         for entry in project_position_relevance:
             writer.writerow(entry)
-        
-# Plotting CV skills
-fig = px.histogram(
-    x=cv['total_skills'],
-    labels={"x": "Skills"},
-    title="Distribution of Skills for CV",
-).update_xaxes(categoryorder="total descending")
-#fig.show()
 
 
-# Plotting Project Categories
-fig = px.histogram(
-    source_file, x="category", title="Distribution of Project Categories"
-).update_xaxes(categoryorder="total descending")
-#fig.show()
+if 'draw_cv_skills' in args.__dict__:
+    print("--- Plotting CV skills to " + args.draw_cv_skills)
+    fig = px.histogram(
+        x=cv_total_skills,
+        labels={"x": "Skills"},
+        title="Distribution of Skills for CVs",
+    ).update_xaxes(categoryorder="total descending")
+    #fig.show()
+    fig.write_image(args.draw_cv_skills)
 
-# Plotting Project Countries
-fig = px.histogram(
-    source_file, x="country", title="Distribution of Countries"
-).update_xaxes(categoryorder="total descending")
-#fig.show()
+if 'draw_categories' in args.__dict__:
+    print("--- Plotting project categories to " + args.draw_categories)
+    fig = px.histogram(
+        source_file, x="category", title="Distribution of Project Categories"
+    ).update_xaxes(categoryorder="total descending")
+    #fig.show()
+    fig.write_image(args.draw_categories)
 
-# Plotting Project skills
-fig = px.histogram(
-    x=total_skills,
-    labels={"x": "Skills"},
-    title="Distribution of Skills",
-).update_xaxes(categoryorder="total descending")
-#fig.show()
+if 'draw_countries' in args.__dict__:
+    print("--- Plotting Project Countries to " + args.draw_countries)
+    fig = px.histogram(
+        source_file, x="country", title="Distribution of Countries"
+    ).update_xaxes(categoryorder="total descending")
+    #fig.show()
+    fig.write_image(args.draw_countries)
+
+if 'draw_jobs_skills' in args.__dict__:
+    print("--- Plotting jobs skills to " + args.draw_jobs_skills)
+    fig = px.histogram(
+        x=total_skills,
+        labels={"x": "Skills"},
+        title="Distribution of Skills",
+    ).update_xaxes(categoryorder="total descending")
+    #fig.show()
+    fig.write_image(args.draw_jobs_skills)
 
 print ('--- Topic Modeling - LDA')
 
@@ -306,8 +315,8 @@ ldamodel = lda(
     minimum_probability=0
 )
 #ldamodel.print_topics(num_topics=num_topics)
-for i in range(0, ldamodel.num_topics):
-    print(ldamodel.print_topic(i))
+# for i in range(0, ldamodel.num_topics):
+#     print(ldamodel.print_topic(i))
 
 #pyLDAvis.enable_notebook()
 visualisation = pyLDAvis.gensim_models.prepare(ldamodel, bow, dictionary)
