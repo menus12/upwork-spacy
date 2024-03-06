@@ -99,7 +99,7 @@ def clear_text(text):
     review = [
         lm.lemmatize(word)        
         for word in review
-        if not word in set(stopwords.words("english").join(letters))
+        if not word in set(stopwords.words("english") + letters)
     ]
     review = " ".join(review)
     return review
@@ -121,34 +121,36 @@ print ('--- Loading data')
 
 f = open(args.jobs)                 # Opening JSON file
 source_file = json.loads(f.read())  # returns JSON object as  a dictionary
-print ('Jobs file is ' + args.file)
+print ('Jobs file is ' + args.jobs)
 f.close()                           # Closing file
 
-f = open(args.cv)   # Opening JSON file
+f = open(args.cv)                   # Opening JSON file
 cv = json.loads(f.read())           # returns JSON object as  a dictionary
 print ('CVs file is ' + args.cv)
 f.close()                           # Closing file
 
-
-
-print ('---')
-
-# Parsing CV data
+print ('--- Parsing CV data')
 
 cv['total_skills'] = []
+for person in cv:
+    person['total_skills'] = []
+    for exp in person['experience']:
+        # cleaning description
+        exp['clean_description'] = clear_text(exp['description'])
+        
+        # extracting any other skills
+        exp['skills'] = get_skills(exp["description"].lower() + ' ' +  exp["technologies"].lower())
+        exp['skills'] = unique_skills(exp['skills'])
+        for skill in exp['skills']:
+            person['total_skills'].append(skill)
+    cv['total_skills'] += person['total_skills']
 
-for i in cv['experience']:
-    # cleaning description
-    cv['experience'][i]['clean_description'] = clear_text(cv['experience'][i]['description'])
-    
-    # extracting any other skills
-    cv['experience'][i]['skills'] = get_skills(cv['experience'][i]["description"].lower() + ' ' +  cv['experience'][i]["technologies"].lower())
-    cv['experience'][i]['skills'] = unique_skills(cv['experience'][i]['skills'])
-    for skill in  cv['experience'][i]['skills']:
-        cv['total_skills'].append(skill)
+print ('--- Parsing projects data')
 
+joblist = [range(0, len(source_file))]
 
-# Parsing projects data
+if args.random > 0:
+    n = random.randint(0,22)
 
 total_skills = []
 docs = []
