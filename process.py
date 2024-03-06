@@ -57,7 +57,7 @@ parser.add_argument('--num_topics', type=int, help='Number of topics to model')
 parser.add_argument('--relevance_table', type=str, help='Filename to save relevance CSV table')
 args = parser.parse_args()
 
-if args.jobs == None | args.cv == None:
+if args.jobs == None or args.cv == None:
     print (parser.print_help())
     exit(1)
     
@@ -131,7 +131,7 @@ f.close()                           # Closing file
 
 print ('--- Parsing CV data')
 
-cv['total_skills'] = []
+cv_total_skills = []
 for person in cv:
     person['total_skills'] = []
     for exp in person['experience']:
@@ -143,21 +143,26 @@ for person in cv:
         exp['skills'] = unique_skills(exp['skills'])
         for skill in exp['skills']:
             person['total_skills'].append(skill)
-    cv['total_skills'] += person['total_skills']
+    cv_total_skills += person['total_skills']
 
 print ('--- Parsing projects data')
 
-joblist = [range(0, len(source_file))]
+joblist = [x for x in range(0, len(source_file))]
 
 if args.random > 0:
-    n = random.randint(0,22)
-
+    joblist = []
+    for i in range(0, args.random):
+        n = random.randint(0, len(source_file))
+        if n not in joblist:
+            joblist.append(n)
+        else: i -= 1
+    
 total_skills = []
 docs = []
 
 for project in source_file:
-    # if project['id'] > 500:
-    #     continue
+    if project['id'] not in joblist:
+        continue
     
     # fix title
     project['title'] = re.sub(' - Upwork', "", project['title'])
@@ -203,6 +208,11 @@ for project in source_file:
     project['skills'] = unique_skills(project['skills'])
     for skill in project['skills']:
         total_skills.append(skill)
+        
+    print("ID:" + str(project['id']) + " | " + 
+          project['title'] + 
+          " | Skills: " + ", ".join(project['skills']) + 
+          " | Category: " + project['category'])
 
 print ('--- Match Score')
 
