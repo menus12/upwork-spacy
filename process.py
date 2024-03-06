@@ -8,6 +8,8 @@ import argparse
 import datetime
 import html
 import csv
+import string 
+import random
 
 #spacy
 import spacy
@@ -44,7 +46,8 @@ warnings.filterwarnings('ignore')
 
 # Adding command line parameters
 parser = argparse.ArgumentParser(description='Upwork data processor')    
-parser.add_argument('--file', type=str, help='Projects dump from database')
+parser.add_argument('--jobs', type=str, help='Projects dump from database')
+parser.add_argument('--cv', type=str, help='Structured CVs file')
 parser.add_argument('--update', type=bool, help='Update metadata (default is False)')
 args = parser.parse_args()
 
@@ -55,7 +58,7 @@ if args.file == None:
     print (parser.print_help())
     exit(1)
 
-nlp = spacy.load("en_core_web_lg")
+nlp = spacy.load("en_use_lg")
 skill_pattern_path = "jz_skill_patterns.jsonl"
 
 ruler = nlp.add_pipe("entity_ruler")
@@ -83,10 +86,14 @@ def clear_text(text):
     review = review.lower()
     review = review.split()
     lm = WordNetLemmatizer()
+    letters = ["a", "b", "c", "d", "e", "f", "g", 
+               "h", "i", "j", "k", "l", "m", "n", 
+               "o", "p", "q", "r", "s", "t", "u", 
+               "v", "w", "x", "y", "z"]
     review = [
-        lm.lemmatize(word)
+        lm.lemmatize(word)        
         for word in review
-        if not word in set(stopwords.words("english"))
+        if not word in set(stopwords.words("english").join(letters))
     ]
     review = " ".join(review)
     return review
@@ -127,7 +134,7 @@ for i in cv['experience']:
     cv['experience'][i]['clean_description'] = clear_text(cv['experience'][i]['description'])
     
     # extracting any other skills
-    cv['experience'][i]['skills'] = get_skills(cv['experience'][i]["clean_description"].lower() + ' ' +  cv['experience'][i]["technologies"].lower())
+    cv['experience'][i]['skills'] = get_skills(cv['experience'][i]["description"].lower() + ' ' +  cv['experience'][i]["technologies"].lower())
     cv['experience'][i]['skills'] = unique_skills(cv['experience'][i]['skills'])
     for skill in  cv['experience'][i]['skills']:
         cv['total_skills'].append(skill)
@@ -146,8 +153,11 @@ total_skills = []
 docs = []
 
 for project in source_file:
-    if project['id'] > 500:
-        continue
+    # if project['id'] > 500:
+    #     continue
+    
+    # fix title
+    project['title'] = re.sub(' - Upwork', "", project['title'])
     
     # fix encoding
     project['description'] = html.unescape(project['description'])
@@ -186,11 +196,12 @@ for project in source_file:
     #project['clean_description'] = project['description']
     
     # extracting any other skills
-    project['skills'] = get_skills(project["clean_description"].lower() + ' ' + project["technologies"].lower())
+    project['skills'] = get_skills(project["description"].lower() + ' ' + project["technologies"].lower())
     project['skills'] = unique_skills(project['skills'])
     for skill in project['skills']:
         total_skills.append(skill)
 
+print ('--- Match Score')
 
 # Computing skills and description relevance
 project_position_relevance = []
@@ -198,8 +209,8 @@ with open('relevance.csv', 'w', newline='') as file:
     writer = csv.writer(file)
     writer.writerow(['project_id', 'cv_id', 'cv_position_id', 'skills_match', 'similarity'])
     for project in source_file:
-        if project['id'] > 500:
-            continue
+        # if project['id'] > 500:
+        #     continue
         for i in cv['experience']:
             proj_desc = nlp(project['clean_description'])
             pos_desc = nlp(cv['experience'][i]['clean_description'])
@@ -214,8 +225,6 @@ with open('relevance.csv', 'w', newline='') as file:
             project_position_relevance.append(entry)
             writer.writerow(entry)
 
-
-    
 
 # Plotting Project Categories
 fig = px.histogram(
@@ -239,11 +248,10 @@ fig = px.histogram(
 
 print ('--- Topic Modeling - LDA')
 
-#docs = data["Clean_Resume"].values
 dictionary = corpora.Dictionary(d.split() for d in docs)
 bow = [dictionary.doc2bow(d.split()) for d in docs]
 lda = gensim.models.ldamodel.LdaModel
-num_topics = 10
+num_topics = 5
 ldamodel = lda(
     bow, 
     num_topics=num_topics, 
@@ -296,23 +304,7 @@ pyLDAvis.save_html(visualisation, 'LDA_Visualization.html')
 
 # displacy.render(sent[0:10], style="dep", jupyter=True, options={"distance": 90})
 
-print ('--- Match Score')
 
-input_skills = "Data Science,Data Analysis,Database,SQL,Machine Learning,tableau"
-
-req_skills = input_skills.lower().split(",")
-for i in data["Clean_Resume"].values:
-    resume_skills = unique_skills(get_skills(i.lower()))
-    score = 0
-    for x in req_skills:
-        if x in resume_skills:
-            score += 1
-    req_skills_len = len(req_skills)
-    match = round(score / req_skills_len * 100, 1)
-    
-    #print("Resume text: " + i)
-    print(f"The current Resume is {match}% matched to your requirements")
-    print(resume_skills)
 
 
         
