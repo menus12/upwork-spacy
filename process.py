@@ -250,8 +250,8 @@ for project in source_file:
                     project['title'] + 
                     " | Skills: " + ", ".join(project['skills']) + 
                     " | Category: " + project['category'])
-                print("  -->" + str(project['id']) + 
-                    " | " + person['name'] + 
+                print("  |-->" + 
+                    person['name'] + 
                     " | " + exp['title'] + 
                     " | Skills match: " + str(round(skills_sim * 100, 2)) + 
                     "% | Desc match: " + str(round(desc_sim * 100, 2)) + "%")
