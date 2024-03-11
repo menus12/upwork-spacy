@@ -40,6 +40,9 @@ from nltk.corpus import stopwords
 from nltk.stem import WordNetLemmatizer
 nltk.download(['stopwords','wordnet'])
 
+#bert
+from bertopic import BERTopic
+
 #warning
 import warnings 
 warnings.filterwarnings('ignore')
@@ -59,14 +62,17 @@ parser.add_argument('--skills_relevance', type=int, help='Threshold for skills r
 parser.add_argument('--csv', type=str, help='Filename to save relevance CSV table')
 args = parser.parse_args()
 
-if args.jobs == None or args.cv == None:
+if args.jobs not in args.__dict__ or args.cv not in args.__dict__:
     print (parser.print_help())
     exit(1)
     
-if args.random == None:
+if args.random not in args.__dict__:
     args.random = 0
 
-if args.skills_relevance == None:
+if args.num_topics not in args.__dict__:
+    args.num_topics = 5
+
+if args.skills_relevance not in args.__dict__:
     args.skills_relevance = 0
 else: 
     print("Skill relevance threshold: " + str(args.skills_relevance))
@@ -163,8 +169,9 @@ if args.random > 0:
         if n not in joblist:
             joblist.append(n)
         else: joblist.append(n + 1)
-    print("Picking " + str(args.random) + " IDs from jobs file:")
-    print(", ".join(str(x) for x in joblist))
+    print("  |--- Picking " + str(args.random) + " IDs from jobs file")
+    source_file = list(filter(lambda source_file: source_file['id'] in joblist, source_file))
+    #print(", ".join(str(x) for x in joblist))
     
 total_skills = []
 docs = []
@@ -250,7 +257,7 @@ for project in source_file:
                     project['title'] + 
                     " | Skills: " + ", ".join(project['skills']) + 
                     " | Category: " + project['category'])
-                print("  |-->" + 
+                print("  |--> " + 
                     person['name'] + 
                     " | " + exp['title'] + 
                     " | Skills match: " + str(round(skills_sim * 100, 2)) + 
@@ -301,26 +308,39 @@ if 'draw_jobs_skills' in args.__dict__:
     #fig.show()
     fig.write_image(args.draw_jobs_skills)
 
-print ('--- Topic Modeling - LDA')
+# print ('--- Topic Modeling - BERT')
 
-dictionary = corpora.Dictionary(d.split() for d in docs)
-bow = [dictionary.doc2bow(d.split()) for d in docs]
-lda = gensim.models.ldamodel.LdaModel
-num_topics = 5
-ldamodel = lda(
-    bow, 
-    num_topics=num_topics, 
-    id2word=dictionary, 
-    passes=50, 
-    minimum_probability=0
-)
-#ldamodel.print_topics(num_topics=num_topics)
-# for i in range(0, ldamodel.num_topics):
-#     print(ldamodel.print_topic(i))
+# nlp = spacy.load("en_use_lg",  exclude=['tagger', 'parser', 'ner', 'attribute_ruler', 'lemmatizer'])
+# topic_model = BERTopic(embedding_model=nlp, )
+# topics, probs = topic_model.fit_transform(docs)
 
-#pyLDAvis.enable_notebook()
-visualisation = pyLDAvis.gensim_models.prepare(ldamodel, bow, dictionary)
-pyLDAvis.save_html(visualisation, 'LDA_Visualization.html') 
+# fig = topic_model.visualize_topics()
+# fig.show()
+
+if 'draw_topics' in args.__dict__:
+    print ('--- Topic Modeling - LDA with', args.num_topics, 'topics')
+
+    dictionary = corpora.Dictionary(d.split() for d in docs)
+    bow = [dictionary.doc2bow(d.split()) for d in docs]
+    lda = gensim.models.ldamodel.LdaModel
+    num_topics = args.num_topics
+    ldamodel = lda(
+        bow, 
+        num_topics=num_topics, 
+        id2word=dictionary, 
+        passes=50, 
+        minimum_probability=0
+    )
+    #ldamodel.print_topics(num_topics=num_topics)
+    # for i in range(0, ldamodel.num_topics):
+    #     print(ldamodel.print_topic(i))
+
+    #pyLDAvis.enable_notebook()
+    visualisation = pyLDAvis.gensim_models.prepare(ldamodel, bow, dictionary)
+    print ('   ---> Saving LDA to', args.draw_topics)
+    pyLDAvis.save_html(visualisation, 'LDA_Visualization.html') 
+    
+
 
 
 
