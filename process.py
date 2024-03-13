@@ -40,9 +40,6 @@ from nltk.corpus import stopwords
 from nltk.stem import WordNetLemmatizer
 nltk.download(['stopwords','wordnet'])
 
-#bert
-from bertopic import BERTopic
-
 #warning
 import warnings 
 warnings.filterwarnings('ignore')
@@ -51,7 +48,7 @@ warnings.filterwarnings('ignore')
 parser = argparse.ArgumentParser(description='Upwork data processor')    
 parser.add_argument('--jobs', type=str, help='Projects dump from database')
 parser.add_argument('--cv', type=str, help='Structured CVs file')
-parser.add_argument('--random', type=int, help='Randomly pick N jobs from dump')
+parser.add_argument('--sample', type=int, help='Randomly pick N jobs from dump')
 parser.add_argument('--draw_cv_skills', type=str, help='Filename to CV skills distribution')
 parser.add_argument('--draw_jobs_skills', type=str, help='Filename to CV skills distribution')
 parser.add_argument('--draw_categories', type=str, help='Filename to draw job categories distribution')
@@ -62,26 +59,32 @@ parser.add_argument('--skills_relevance', type=int, help='Threshold for skills r
 parser.add_argument('--csv', type=str, help='Filename to save relevance CSV table')
 args = parser.parse_args()
 
-if args.jobs not in args.__dict__ or args.cv not in args.__dict__:
+sample = 0
+num_topics = 5
+skills_relevance = 0
+
+
+if "jobs" not in args.__dict__ or "cv" not in args.__dict__:
     print (parser.print_help())
     exit(1)
     
-if args.random not in args.__dict__:
-    args.random = 0
+if "sample" in args.__dict__:
+    sample = args.sample
 
-if args.num_topics not in args.__dict__:
-    args.num_topics = 5
+if "num_topics" in args.__dict__:
+    num_topics = args.num_topics
 
-if args.skills_relevance not in args.__dict__:
-    args.skills_relevance = 0
-else: 
-    print("Skill relevance threshold: " + str(args.skills_relevance))
+if "skills_relevance" in args.__dict__:
+    skills_relevance = args.skills_relevance
+    print("Skill relevance threshold: " + str(skills_relevance))
+    
 
 nlp = spacy.load("en_use_lg")
 skill_pattern_path = "jz_skill_patterns.jsonl"
 
 ruler = nlp.add_pipe("entity_ruler")
 ruler.from_disk(skill_pattern_path)
+
 
 def get_skills(text):
     doc = nlp(text)
@@ -157,19 +160,21 @@ for person in cv:
         for skill in exp['skills']:
             person['total_skills'].append(skill)
     cv_total_skills += person['total_skills']
+    
+    
 
 print ('--- Parsing projects data')
 
 joblist = [x for x in range(0, len(source_file))]
 
-if args.random > 0:
+if sample > 0:
     joblist = []
-    for i in range(0, args.random):
+    for i in range(0, sample):
         n = random.randint(0, len(source_file)-1)
         if n not in joblist:
             joblist.append(n)
         else: joblist.append(n + 1)
-    print("  |--- Picking " + str(args.random) + " IDs from jobs file")
+    print("  |--- Picking " + str(sample) + " IDs from jobs file")
     source_file = list(filter(lambda source_file: source_file['id'] in joblist, source_file))
     #print(", ".join(str(x) for x in joblist))
     
@@ -224,7 +229,7 @@ for project in source_file:
     project['skills'] = unique_skills(project['skills'])
     for skill in project['skills']:
         total_skills.append(skill)
-        
+
     # print("ID:" + str(project['id']) + " | " + 
     #       project['title'] + 
     #       " | Skills: " + ", ".join(project['skills']) + 
@@ -242,8 +247,8 @@ for project in source_file:
             proj_skills = nlp(" ".join(project['skills']))
             pos_skills = nlp(" ".join(exp['skills']))
             skills_sim = proj_skills.similarity(pos_skills)
-            if round(skills_sim * 100, 2) > args.skills_relevance:
-                proj_desc = nlp(project['clean_description'])
+            if round(skills_sim * 100, 2) > skills_relevance:
+                proj_desc = nlp(project['clean_description'])                
                 pos_desc = nlp(exp['clean_description'])
                 desc_sim = proj_desc.similarity(pos_desc)
                 entry = [project['id'], 
@@ -308,22 +313,31 @@ if 'draw_jobs_skills' in args.__dict__:
     #fig.show()
     fig.write_image(args.draw_jobs_skills)
 
-# print ('--- Topic Modeling - BERT')
 
-# nlp = spacy.load("en_use_lg",  exclude=['tagger', 'parser', 'ner', 'attribute_ruler', 'lemmatizer'])
-# topic_model = BERTopic(embedding_model=nlp, )
-# topics, probs = topic_model.fit_transform(docs)
-
-# fig = topic_model.visualize_topics()
-# fig.show()
 
 if 'draw_topics' in args.__dict__:
     print ('--- Topic Modeling - LDA with', args.num_topics, 'topics')
 
+    removal= ['CCONJ','PUNCT','PART','DET','ADP','SPACE', 'NUM', 'SYM']
+    tokens = []
+    
+    # for summary in nlp.pipe(docs):
+    #     proj_tok = [token.lemma_.lower() for token in summary if token.pos_ not in removal and not token.is_stop and token.is_alpha]
+    #     tokens.append(proj_tok)
+    # dictionary = corpora.Dictionary(tokens)
+    # dictionary.filter_extremes(no_below=5, no_above=0.5, keep_n=1000)
+    # corpus = [dictionary.doc2bow(doc) for doc in tokens]
+    # lda = gensim.models.ldamodel.LdaModel
+    # lda_model = lda(corpus=corpus, id2word=dictionary, iterations=50, num_topics=5, workers = 4, passes=10)
+    # lda_model.print_topics(-1)
+    # visualisation = pyLDAvis.gensim_models.prepare(lda_model, corpus, dictionary)
+    # pyLDAvis.save_html(visualisation, 'LDA_Visualization.html') 
+
     dictionary = corpora.Dictionary(d.split() for d in docs)
+    
     bow = [dictionary.doc2bow(d.split()) for d in docs]
     lda = gensim.models.ldamodel.LdaModel
-    num_topics = args.num_topics
+    num_topics = num_topics
     ldamodel = lda(
         bow, 
         num_topics=num_topics, 
@@ -331,6 +345,7 @@ if 'draw_topics' in args.__dict__:
         passes=50, 
         minimum_probability=0
     )
+    
     #ldamodel.print_topics(num_topics=num_topics)
     # for i in range(0, ldamodel.num_topics):
     #     print(ldamodel.print_topic(i))
