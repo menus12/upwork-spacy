@@ -3,3 +3,4 @@ kaggle/*
 ./*.html
 relevance.csv
 *.png
+.env
