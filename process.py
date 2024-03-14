@@ -10,6 +10,7 @@ import html
 import csv
 import string 
 import random
+import mysql.connector
 
 #spacy
 import spacy
@@ -48,6 +49,7 @@ warnings.filterwarnings('ignore')
 parser = argparse.ArgumentParser(description='Upwork data processor')    
 parser.add_argument('--jobs', type=str, help='Projects dump from database')
 parser.add_argument('--cv', type=str, help='Structured CVs file')
+parser.add_argument('--last', type=int, help='Number of days for database query')
 parser.add_argument('--sample', type=int, help='Randomly pick N jobs from dump')
 parser.add_argument('--draw_cv_skills', type=str, help='Filename to CV skills distribution')
 parser.add_argument('--draw_jobs_skills', type=str, help='Filename to CV skills distribution')
@@ -63,10 +65,24 @@ sample = 0
 num_topics = 5
 skills_relevance = 0
 
+mysql_host = os.environ.get('MYSQL_HOST')
+mysql_port = os.environ.get('MYSQL_PORT')
+mysql_user = os.environ.get('MYSQL_USER')
+mysql_password = os.environ.get('MYSQL_PASSWORD')
+days = 0
+db_query = "SELECT * FROM bidding_machine.approved_projects"
 
-if "jobs" not in args.__dict__ or "cv" not in args.__dict__:
-    print (parser.print_help())
+if mysql_host == None or mysql_port == None or mysql_user == None or mysql_password == None:
+    print("Check environment variables for MYSQL_HOST, MYSQL_PORT, MYSQL_USER, MYSQL_PASSWORD")
     exit(1)
+
+if "last" in args.__dict__:
+    days = args.last
+    db_query = db_query + " WHERE bidding_machine.approved_projects.date  > NOW() - INTERVAL " + str(days) + " DAY"
+
+# if "jobs" not in args.__dict__ or "cv" not in args.__dict__:
+#     print (parser.print_help())
+#     exit(1)
     
 if "sample" in args.__dict__:
     sample = args.sample
@@ -85,6 +101,21 @@ skill_pattern_path = "jz_skill_patterns.jsonl"
 ruler = nlp.add_pipe("entity_ruler")
 ruler.from_disk(skill_pattern_path)
 
+def fetch_jobs():
+    db = mysql.connector.connect(
+        host=mysql_host,
+        port=mysql_port,
+        user=mysql_user,
+        password=mysql_password
+        )
+    cursor = db.cursor()
+    cursor.execute(db_query)
+    row_headers=[x[0] for x in cursor.description] #this will extract row headers
+    rv = cursor.fetchall()
+    json_data=[]
+    for result in rv:
+        json_data.append(dict(zip(row_headers,result)))
+    return json_data
 
 def get_skills(text):
     doc = nlp(text)
@@ -135,10 +166,13 @@ start_time = datetime.datetime.now()
 
 print ('--- Loading data')
 
-f = open(args.jobs)                 # Opening JSON file
-source_file = json.loads(f.read())  # returns JSON object as  a dictionary
-print ('Jobs file is ' + args.jobs)
-f.close()                           # Closing file
+# f = open(args.jobs)                 # Opening JSON file
+# source_file = json.loads(f.read())  # returns JSON object as  a dictionary
+# print ('Jobs file is ' + args.jobs)
+# f.close()                           # Closing file
+
+source_file = fetch_jobs()
+print ('Fetched', len(source_file), 'jobs from bidder database')
 
 f = open(args.cv)                   # Opening JSON file
 cv = json.loads(f.read())           # returns JSON object as  a dictionary
@@ -165,12 +199,13 @@ for person in cv:
 
 print ('--- Parsing projects data')
 
-joblist = [x for x in range(0, len(source_file))]
+seq = [x['id'] for x in source_file]
+joblist = seq
 
 if sample > 0:
     joblist = []
     for i in range(0, sample):
-        n = random.randint(0, len(source_file)-1)
+        n = random.randint(min(seq), max(seq))
         if n not in joblist:
             joblist.append(n)
         else: joblist.append(n + 1)
@@ -182,8 +217,8 @@ total_skills = []
 docs = []
 
 for project in source_file:
-    if project['id'] not in joblist:
-        continue
+    # if sample > 0 and project['id'] not in joblist:
+    #     continue
     
     # fix title
     project['title'] = re.sub(' - Upwork', "", project['title'])
@@ -207,7 +242,7 @@ for project in source_file:
     skills_re = 'Skills: ([a-zA-Z\d -\/;]+)'
     if "Skills:" in project['description']:        
         skills = re.findall(skills_re, project['description'])  
-        project['technologies'] = skills.pop()
+        if len(skills) > 0: project['technologies'] = skills.pop()
     else: project['technologies'] = "None"
     project['description'] = re.sub(skills_re, " ", project['description'])
 
@@ -240,8 +275,8 @@ print ('--- Computing skills and description relevance')
 project_position_relevance = []
 
 for project in source_file:
-    if project['id'] not in joblist:
-        continue
+    # if project['id'] not in joblist:
+    #     continue
     for person in cv:
         for exp in person['experience']:
             proj_skills = nlp(" ".join(project['skills']))
@@ -251,7 +286,7 @@ for project in source_file:
                 proj_desc = nlp(project['clean_description'])                
                 pos_desc = nlp(exp['clean_description'])
                 desc_sim = proj_desc.similarity(pos_desc)
-                entry = [project['id'], 
+                entry = [project['id'], project['url'],
                     person['id'], # cv_id
                     exp['id'], # cv position id
                     skills_sim,
@@ -272,7 +307,7 @@ if 'csv' in args.__dict__:
     print ('--- Saving relevance table in ' + args.csv)
     with open(args.csv, 'w', newline='') as file:
         writer = csv.writer(file)
-        writer.writerow(['project_id', 'cv_id', 'cv_position_id', 'skills_match', 'similarity'])
+        writer.writerow(['project_id', 'upwork_url,' 'cv_id', 'cv_position_id', 'skills_match', 'description_match'])
         for entry in project_position_relevance:
             writer.writerow(entry)
 
