@@ -72,25 +72,25 @@ mysql_password = os.environ.get('MYSQL_PASSWORD')
 days = 0
 db_query = "SELECT * FROM bidding_machine.approved_projects"
 
-if mysql_host == None or mysql_port == None or mysql_user == None or mysql_password == None:
+if args.cv is None:
+    print ("CV file argument is missing")
+    exit(1)
+
+if mysql_host is None or mysql_port is None or mysql_user is None or mysql_password is None:
     print("Check environment variables for MYSQL_HOST, MYSQL_PORT, MYSQL_USER, MYSQL_PASSWORD")
     exit(1)
 
-if "last" in args.__dict__:
+if args.last is not None:
     days = args.last
     db_query = db_query + " WHERE bidding_machine.approved_projects.date  > NOW() - INTERVAL " + str(days) + " DAY"
 
-# if "jobs" not in args.__dict__ or "cv" not in args.__dict__:
-#     print (parser.print_help())
-#     exit(1)
-    
-if "sample" in args.__dict__:
+if args.sample is not None:
     sample = args.sample
 
-if "num_topics" in args.__dict__:
+if args.num_topics is not None:
     num_topics = args.num_topics
 
-if "skills_relevance" in args.__dict__:
+if args.skills_relevance is not None:
     skills_relevance = args.skills_relevance
     print("Skill relevance threshold: " + str(skills_relevance))
     
@@ -303,7 +303,7 @@ for project in source_file:
                     " | Skills match: " + str(round(skills_sim * 100, 2)) + 
                     "% | Desc match: " + str(round(desc_sim * 100, 2)) + "%")
 
-if 'csv' in args.__dict__:
+if args.csv is not None:
     print ('--- Saving relevance table in ' + args.csv)
     with open(args.csv, 'w', newline='') as file:
         writer = csv.writer(file)
@@ -312,7 +312,7 @@ if 'csv' in args.__dict__:
             writer.writerow(entry)
 
 
-if 'draw_cv_skills' in args.__dict__:
+if args.draw_cv_skills is not None:
     print("--- Plotting CV skills to " + args.draw_cv_skills)
     fig = px.histogram(
         x=cv_total_skills,
@@ -322,7 +322,7 @@ if 'draw_cv_skills' in args.__dict__:
     #fig.show()
     fig.write_image(args.draw_cv_skills)
 
-if 'draw_categories' in args.__dict__:
+if args.draw_categories is not None:
     print("--- Plotting project categories to " + args.draw_categories)
     fig = px.histogram(
         source_file, x="category", title="Distribution of Project Categories"
@@ -330,7 +330,7 @@ if 'draw_categories' in args.__dict__:
     #fig.show()
     fig.write_image(args.draw_categories)
 
-if 'draw_countries' in args.__dict__:
+if args.draw_countries is not None:
     print("--- Plotting Project Countries to " + args.draw_countries)
     fig = px.histogram(
         source_file, x="country", title="Distribution of Countries"
@@ -338,7 +338,7 @@ if 'draw_countries' in args.__dict__:
     #fig.show()
     fig.write_image(args.draw_countries)
 
-if 'draw_jobs_skills' in args.__dict__:
+if args.draw_jobs_skills is not None:
     print("--- Plotting jobs skills to " + args.draw_jobs_skills)
     fig = px.histogram(
         x=total_skills,
@@ -350,7 +350,7 @@ if 'draw_jobs_skills' in args.__dict__:
 
 
 
-if 'draw_topics' in args.__dict__:
+if args.draw_topics is not None:
     print ('--- Topic Modeling - LDA with', args.num_topics, 'topics')
 
     removal= ['CCONJ','PUNCT','PART','DET','ADP','SPACE', 'NUM', 'SYM']
