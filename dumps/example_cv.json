@@ -68,5 +68,143 @@
                 "technologies": ".NET C#, XMPP, PowerShell, PowerCLI, Cisco Packet Tracer, Cisco Catalyst 2900, Cisco ISR 2800, Cisco ASA 5500"
             }
         ]
+    },
+    {
+        "id": 1,
+        "name": "Sergey Iskandaryan",
+        "summary": "DevOps Engineer with a strong emphasis on AWS/Azure cloud services, Windows/Linux administration, and expertise in highly in-demand technologies including Sonatype Nexus, Logstash, and Kubernetes. Proficient in PowerShell automation, Kubernetes cluster management, and cloud infrastructure deployment, I also excel in integrating technologies like Cephfs, etcd, and FreeIPA for robust system configurations. My focus on high availability and performance is complemented by a skill set that includes maintaining and enhancing both on-premise and cloud infrastructures, and building and maintaining CI/CD pipelines.",
+        "experience": [
+            {
+                "id": 0,
+                "title": "Senior DevOps Engineer",
+                "company": "Project under the NDA",
+                "start_date": "",
+                "end_date": "",
+                "description": "● Configured and maintained CI/CD pipelines using GitLab CI, integrating Sonatype Nexus for efficient artifact repository management, resulting in streamlined build processes.|● Create and manage Kubernetes clusters, both on-premises and in the cloud, focusing on scalable and resilient application deployments.|● Implement observability and monitoring solutions including Prometheus, VictoriaMetrics, ELK, and Loki.|● Utilize Argo CD and Helm charts for deployment automation; employ Terraform and Terragrunt for infrastructure provisioning.|● Developed robust, scalable storage solutions using Cephfs, which greatly improved data handling efficiency in cloud-native environments.|● Automate host configuration and management with Ansible; administer CDN using Cloudflare.|● Administer SQL and NoSQL databases, including MongoDB, Redis, and PostgreSQL, with a focus on high availability.|● Implemented FreeIPA for centralized identity and access management, significantly enhancing security protocols and simplifying user access controls across various platforms.|",
+                "technologies": "Docker, Kubernetes, Istio, Ingress (Nginx), Helm, HelmWave, Jenkins, GitLab CI, Argo CD, Ansible, Terraform, Terragrunt, AWS, Azure. Prometheus, Thanos, Zabbix, Victoria Metrics, Grafana, ELK Stack, AppDynamics, Loki, Cloudflare, MongoDB, PostgreSQL, Apache Kafka, RabbitMQ, Redis, IIS, RHEL, Linux System Administration, Sonatype Nexus, etcd, Bash, Nginx, Apache, Vagrant, VirtualBox, Cephfs, GitHub Actions, Jira, Confluence, FreeIPA, Docker Compose"
+            },
+                    {
+                "id": 1,
+                "title": "Chief Information Officer",
+                "company": "AZAD Pharma AG",
+                "start_date": "",
+                "end_date": "",
+                "description": "● Led and managed the IT department; served as the primary IT contact within the company and with external partners.|● Ensured IT infrastructure's reliability and security, including Windows Server, VMware, and network configurations.|● Designed IT policies for systems and data security; managed network infrastructure and IT department budget.|",
+                "technologies": "Windows Servers Administration, VMware vSphere, Hyper-V, RAS, FortiGate, HP Networking, Cisco Switches, Print Servers, DNS Server, DHCP Server Windows, Ansible"
+            },
+                    {
+                "id": 2,
+                "title": "IT Monitoring Specialist",
+                "company": "Digitain Armenia",
+                "start_date": "",
+                "end_date": "",
+                "description": "● Managed Linux-based systems and servers using Linux administration skills. ● Configured and managed DNS services with Cloudflare DNS. ● Utilized Zabbix, ELK, AppDynamics, and Grafana for systems monitoring. ● Automated tasks with Bash scripting; managed and configured web servers like IIS and Nginx ",
+                "technologies": "AppDynamics, SSL Certificates, Cloudflare, ELK Stack, Powershell, IIS, RHEL, Ansible, Linux System Administration, Bash, Nginx, Apache, Zabbix, Grafana, Jenkins"
+            },
+                    {
+                "id": 3,
+                "title": "Systems Administrator",
+                "company": "Digital Edge IT",
+                "start_date": "",
+                "end_date": "",
+                "description": "● Provided remote support for production environments, including Windows Server 2008/2012/2016, Active Directory, and Exchange Server. ● Configured and maintained network infrastructure, managed client network side, and collaborated with internet providers. ● Maintained and monitored VMware vSphere administration and Veeam Backup. ",
+                "technologies": "Windows Server, Microsoft Exchange, VMware Infrastructure, Veeam Backup, Active Directory"
+            },
+                    {
+                "id": 4,
+                "title": "IT Support Engineer",
+                "company": "Ucom",
+                "start_date": "",
+                "end_date": "",
+                "description": "● Excelled in implementing and managing complex networking solutions, leveraging a deep understanding of DNS, DHCP, routing, and switching to optimize client infrastructures. ● Proactively addressed and resolved technical issues, significantly improving system reliability and performance for clients. ● Spearheaded the configuration and maintenance of VPN and proxy technologies, enhancing network security and connectivity. ● Conducted comprehensive training sessions for end-users, facilitating improved network utilization and efficiency. ● Played a pivotal role in ensuring the satisfaction of the company's clients by providing expert guidance and support for their networking needs. ",
+                "technologies": "TCP/IP, VPN, DNS, DHCP, routing, switching, OSI model, MAC"
+            }
+        ]
+    },
+    {
+        "id": 2,
+        "name": "Shyngys Ahmet",
+        "summary": "I am a product-focused DevOps engineer with over a decade in IT, specializing in crafting secure, scalable, and efficient systems, with a keen expertise in Kubernetes. My in-depth knowledge has propelled companies to successfully launch products with unparalleled efficiency and flexibility. I am experienced in  Azure and AWS clouds.",
+        "experience": [
+            {
+                "id": 0,
+                "title": "Engineer",
+                "company": "Cloud Services Broker",
+                "start_date": "",
+                "end_date": "",
+                "description": "● Integrated Kubernetes to streamline and optimize the existing project infrastructure, emphasizing seamless container orchestration. ● Utilized Kubernetes to enhance the CI/CD pipeline in Jenkins, ensuring quicker, scalable deployments. ● Project infrastructure support in Azure (Virtual Machines, Virtual Network, DNS, Load Balancing) ● Implemented infrastructure-as-code practices, making use of Kubernetes for dynamic scaling and management of services. ● Augmented the Prometheus/Grafana-based monitoring system to effectively monitor Kubernetes clusters and services. ● Utilized Logstash for efficient data processing and management. ● Integrated Neo4J for advanced graph database solutions. ",
+                "technologies": "Azure, AWS, Terraform, Ansible, Jenkins, Kubernetes, Prometheus, Grafana, Logstash, Neo4J, Linux RHEL"
+            },
+            {
+                "id": 1,
+                "title": "Engineer",
+                "company": "WEB-OSINT Project",
+                "start_date": "",
+                "end_date": "",
+                "description": "● Prioritized Kubernetes support for infrastructure enhancement, leading to robust application deployments and management. ● Deployed a local Kubernetes cluster to bolster application uptime, facilitating rapid feature deployment. ● Spearheaded software deployment processes, integrating Kubernetes with Gitlab CI and Helm for optimized container orchestration. ● Implemented Cephfs for reliable and scalable file system management. ",
+                "technologies": "Proxmox VE, Linux, PostgreSQL, Kubernetes, Docker, Ansible, Terraform, Gitlab CI, Prometheus, Grafana, Cephfs, Linux RHEL"
+            },
+            {
+                "id": 2,
+                "title": "Engineer",
+                "company": "Opera Build project",
+                "start_date": "",
+                "end_date": "",
+                "description": "● Pioneered DevOps methodologies, building monitoring and CI/CD systems from the ground up. ● Transitioned the CI/CD pipeline from TeamCity to Jenkins, standardizing company tools. ● Shifted the .NET application build from Windows to Linux, expediting deployment. ",
+                "technologies": "Linux, PostgreSQL, Docker, Ansible, Gitlab CI, Jenkins, Prometheus, Grafana"
+            },
+            {
+                "id": 3,
+                "title": "Engineer",
+                "company": "Data management project",
+                "start_date": "",
+                "end_date": "",
+                "description": "● The team developed a data management strategy to optimize data processing. This strategy involved stakeholder collaboration and alignment with business objectives. The result was improved data management and quality. ● An enterprise data architecture was developed to ensure effective data management and decision making. ● Implemented and optimized business processes using ARIS Architect & Designer to streamline data workflows. The result was smoother operations and cost savings. ● Implemented SAP MDG system for centralized master data management. Improved data accuracy and consistency.  ",
+                "technologies": "Linux, PostgreSQL, Docker"
+            }
+        ]
+    },
+    {
+        "id": 3,
+        "name": "Aram K",
+        "summary": "Experienced DevOps Engineer with a strong background in Terraform, Kubernetes, Docker, Microsoft Azure, AWS, cloud consulting, Python, Bash, and more. Skilled in cloud infrastructure setup, migration, cost optimization, and issue resolution. Proficient in automating tasks and providing valuable guidance to clients. Passionate about creating robust and scalable cloud infrastructures, meeting client expectations, and establishing long-lasting relationships. Ready to tackle technical challenges and collaborate effectively with team members.",
+        "experience": [
+            {
+                "id": 0,
+                "title": "DevOps engineer",
+                "company": "Sharp Dev",
+                "start_date": "",
+                "end_date": "",
+                "description": "Tasks: As a DevOps engineer in Sharp Dev, I played a pivotal role in enhancing project delivery and infrastructure reliability across diverse environments, primarily focusing on AWS and Azure platforms. My responsibilities included the creation and maintenance of CI/CD pipelines, setting up and managing cloud-based projects, and ensuring the robustness of Linux-based servers through various configurations. Leveraging a wide array of technologies like GitHub Actions, GitLab CI, Terraform, and scripting in Bash and Python, I significantly improved deployment processes and system operations. My work spanned across automating application configurations, integrating code quality and security checks, and deploying serverless backends and scalable front-end solutions.  Results:  ● CI/CD Pipeline Construction and Optimization: Developed and optimized CI/CD pipelines using GitHub Actions and GitLab CI to automate build, test, and deployment processes, ensuring faster release cycles and higher code quality. ● AWS and Azure Infrastructure Management: Utilized Terraform to provision and manage cloud infrastructure as code (IaC) across AWS and Azure, achieving scalable and reproducible environments. ● Serverless Backend Deployment: Implemented AWS SAM to deploy serverless applications, enhancing scalability and reducing operational costs. ● CloudFront and S3 for Front-end Distribution: Configured CloudFront with S3 buckets to efficiently serve and manage front-end assets, significantly improving load times and user experience. ● Linux Server Configurations: Conducted various configurations on Linux-based servers using Bash and Python scripting to optimize performance and security. ● Application Configuration Automation: Automated application configurations, reducing manual intervention and ensuring consistent environments across development, testing, and production. ● Code Quality and Security Checks: Integrated code quality and security checks within CI/CD pipelines using tools like SonarQube and Snyk, minimizing vulnerabilities and maintaining high standards. ● Monitoring and Logging: Set up comprehensive monitoring and logging solutions using CloudWatch and Azure Monitor to ensure proactive issue detection and resolution. ● Network Configuration and Security: Enhanced network security and configuration in cloud environments, utilizing AWS VPC and Azure Virtual Networks to segregate and protect resources. ● Database Management: Managed relational and NoSQL databases in the cloud, ensuring high availability, backup, and disaster recovery strategies. ● Docker for Containerization: Leveraged Docker to containerize applications, facilitating smoother deployment processes and scalability. ● Cost Optimization: Implemented cost-optimization practices for cloud resources, ensuring efficient use of budgets without compromising on performance. ● Infrastructure Monitoring and Alerting: Developed alerting mechanisms for infrastructure and application monitoring, enabling quick response to incidents and maintaining high availability.",
+                "technologies": ""
+            },
+            {
+                "id": 1,
+                "title": "Engineer",
+                "company": "HopShop backend Infrastructure",
+                "start_date": "",
+                "end_date": "",
+                "description": "Tasks: HopShop is a mobile application that revolutionizes the shopping experience by allowing users to find and purchase products using only the image of the product. The task for the HopShop project was to migrate the existing non-scalable product to the cloud, enabling scalability and independent management of each component of the application. The objective was to adopt a cloud-native approach, leveraging cloud services and technologies to optimize the application's performance and flexibility.   Results: The migration of the HopShop application to the cloud and adoption of a cloud-native approach yielded several significant outcomes:  ● Terraform Implementation: By utilizing Terraform as an infrastructure-as-code tool, the project successfully tracked and managed the cloud infrastructure. This approach facilitated infrastructure provisioning, modification, and version control, harnessing the benefits of infrastructure as code.  ● Cloud-Native Scalability: The adoption of a cloud-native approach enabled the creation of a scalable system. The application architecture leveraged cloud services and technologies, allowing each component to scale independently based on the workload. This dynamic scalability ensured optimal performance and efficient resource utilization.  ● Dynamic Cost Model: The cloud-native design of the HopShop application incorporated a cost-effective approach. The system leveraged cloud provider capabilities to generate costs based on resource consumption. This allowed for a flexible cost model, ensuring efficient resource allocation and cost optimization. ● Disaster Recovery: Robust disaster recovery mechanisms were implemented to minimize downtime and ensure business continuity. The infrastructure was designed to support quick recovery and redeployment with minimal disruption in case of failures or disasters. This approach enhanced the application's resilience and reduced the impact of potential outages.  ● Reduced Maintenance Efforts and Costs: By leveraging cloud services managed by the cloud providers, the HopShop project achieved significant reductions in maintenance time and budget. The cloud services abstracted the underlying infrastructure management, allowing the team to focus on application development and functionality.  ● Scalable Infrastructure: The migration to the cloud facilitated the creation of a scalable infrastructure. The system could dynamically scale resources based on the load and demand on specific segments of the application. This scalability ensured that the application could handle increased traffic and effectively meet user demands.  ● - Enhanced Security: The migration to the cloud offered advanced security features and built-in compliance measures provided by cloud service providers. This included encryption, access controls, and robust security frameworks, ensuring the protection of sensitive data and mitigating security risks.  ● - Global Availability: The cloud-native approach allowed for easy deployment of the HopShop application in multiple regions around the world. This enabled global availability, ensuring that users from various geographic locations could access and utilize the application without latency or accessibility issues.  ● - Monitoring and Analytics: The cloud infrastructure enabled comprehensive monitoring and analytics capabilities. The project could gather real-time insights into application performance, user behavior, and system health, allowing for proactive issue identification and optimization of the application.  ",
+                "technologies": "Azure, Terraform, Kubernetes, Cloud Native"
+            },
+            {
+                "id": 2,
+                "title": "Engineer",
+                "company": "Schneider e-commerce Infrastructure",
+                "start_date": "",
+                "end_date": "",
+                "description": "Tasks: The task for the online shop project was to design and implement a scalable infrastructure to support more than 100,000 users. The infrastructure was built on Microsoft Azure, utilizing the Kubernetes service for container orchestration. The project also involved implementing caching with Redis, logging with ElasticSearch, Kibana, and Fluentd, as well as incorporating backup and disaster recovery mechanisms. Additionally, CI/CD pipelines were set up to enable continuous integration and deployment.   Results: The project successfully achieved the following outcomes:   ● Scalable Infrastructure: By leveraging the Kubernetes service on Microsoft Azure, the online shop project created a highly scalable infrastructure. The application could handle the growing user base and fluctuating traffic demands by dynamically scaling resources to ensure optimal performance and user experience.  ● Efficient Caching: The integration of Redis as a caching mechanism improved the application's response times and reduced database loads. By storing frequently accessed data in Redis, the online shop provided faster access to product information and enhanced overall system performance.  ● Robust Logging and Monitoring: The implementation of Elastic Search, Kibana, and Fluentd facilitated comprehensive logging and monitoring capabilities. The system captured and analyzed log data, enabling efficient troubleshooting, performance analysis, and proactive issue detection to ensure a smooth operation of the online shop.  ● Backup and Disaster Recovery: The project incorporated backup and disaster recovery mechanisms to protect critical data and ensure business continuity. Regular backups were performed to secure data integrity, and disaster recovery processes were established to minimize downtime and quickly restore the infrastructure in case of any unexpected failures or disasters.  ● CI/CD Pipelines: The setup of CI/CD pipelines enabled automated and streamlined software delivery processes. Developers could continuously integrate code changes, run automated tests, and deploy updates to the production environment. This accelerated the development cycle, improved code quality, and reduced the time-to-market for new features and bug fixes.  ",
+                "technologies": "Azure, Terraform, Kubernetes: Redis.ElasticSearch, Kibana, Fluentd, GitHub Actions"
+            },
+            {
+                "id": 3,
+                "title": "Engineer",
+                "company": "BIDITEX crypto exchange Infrastructure",
+                "start_date": "",
+                "end_date": "",
+                "description": "Tasks: The task for the Biditex project was to develop a highly scalable cryptocurrency exchange capable of handling thousands of operations in parallel. The goal was to implement a microservice architecture, allowing for separate development and deployment of each infrastructure component. The exchange needed to connect with various third-party services, including order matching systems, other cryptocurrency exchanges, and order aggregators. Additionally, the project involved implementing peer-to-peer (P2P) payments using QR codes and automating the Know Your Customer (KYC) process using computer vision technologies.   Results: The Biditex project achieved the following outcomes: ● Scalable Microservice Architecture: The implementation of a microservice architecture enabled independent development and deployment of each infrastructure component. This approach provided flexibility, scalability, and ease of maintenance, allowing the exchange to handle a large volume of operations in parallel.  ● Integration with Third-Party Services: Biditex successfully connected with several third-party services, including order matching systems, other cryptocurrency exchanges, and order aggregators. This integration facilitated seamless order execution, liquidity, and market depth, enhancing the overall trading experience for users.  ● P2P Payments with QR Codes: The project implemented peer-to-peer payments using QR codes, enabling users to easily transfer funds between accounts within the exchange. This feature enhanced user convenience and facilitated secure and efficient transactions.  ● Automated KYC with Computer Vision: The KYC process was automated using computer vision technologies. This allowed for efficient and accurate identity verification, ensuring compliance with regulatory requirements while minimizing manual intervention and improving the onboarding process for users.  ● Utilized for in-memory computing to enhance performance and scalability of data processing and storage with Apache Ignite  ● Employed for large-scale data processing and analytics, facilitating real-time insights and decision-making with Apache Spark.  ● Implemented for centralized logging and log management, enabling efficient monitoring and troubleshooting of the exchange's infrastructure and services with Graylog  ",
+                "technologies": "Apache Ignite, Apache Spark, Graylog, Kubernetes, Jenkins, Ansible, Docker, CDN"
+            }
+        ]
     }
 ]
