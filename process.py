@@ -270,6 +270,34 @@ for project in source_file:
     #       " | Skills: " + ", ".join(project['skills']) + 
     #       " | Category: " + project['category'])
 
+print ('--- Computing skills matrix')
+
+table = {}
+
+skills = unique_skills(total_skills + cv_total_skills)
+upwork_counters = []
+sharpdev_counters = []
+matrix = []
+
+for skill in skills:
+    upwork_counters.append(total_skills.count(skill))
+    sharpdev_counters.append(cv_total_skills.count(skill))
+
+table['skills'] = skills
+table['upwork'] = upwork_counters
+table['sharpdev'] = sharpdev_counters
+
+for person in cv:
+    table[person['name']] = []
+    for skill in skills:
+        table[person['name']].append(person['total_skills'].count(skill))
+    
+df = pd.DataFrame(table)
+df = df.sort_values(by=['upwork'], ascending=[False])
+df.to_csv('matrix.csv', sep='\t', index=False)
+print(df)
+    
+
 print ('--- Computing skills and description relevance')
 
 project_position_relevance = []
