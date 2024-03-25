@@ -47,10 +47,10 @@ warnings.filterwarnings('ignore')
 
 # Adding command line parameters
 parser = argparse.ArgumentParser(description='Upwork data processor')    
-parser.add_argument('--jobs', type=str, help='Projects dump from database')
 parser.add_argument('--cv', type=str, help='Structured CVs file')
-parser.add_argument('--last', type=int, help='Number of days for database query')
-parser.add_argument('--sample', type=int, help='Randomly pick N jobs from dump')
+parser.add_argument('--category', type=str, help='Filter projects by category')
+parser.add_argument('--last', type=int, help='Filter projects by number of days for database query')
+parser.add_argument('--sample', type=int, help='Randomly pick N jobs')
 parser.add_argument('--draw_cv_skills', type=str, help='Filename to CV skills distribution')
 parser.add_argument('--draw_jobs_skills', type=str, help='Filename to CV skills distribution')
 parser.add_argument('--draw_categories', type=str, help='Filename to draw job categories distribution')
@@ -59,11 +59,14 @@ parser.add_argument('--draw_topics', type=str, help='Filename to draw topic mode
 parser.add_argument('--num_topics', type=int, help='Number of topics to model')
 parser.add_argument('--skills_relevance', type=int, help='Threshold for skills relevance')
 parser.add_argument('--csv', type=str, help='Filename to save relevance CSV table')
+parser.add_argument('--matrix', type=str, help='Filename to save skill matrix table')
 args = parser.parse_args()
 
 sample = 0
 num_topics = 5
+
 skills_relevance = 0
+category = ""
 
 mysql_host = os.environ.get('MYSQL_HOST')
 mysql_port = os.environ.get('MYSQL_PORT')
@@ -86,6 +89,9 @@ if args.last is not None:
 
 if args.sample is not None:
     sample = args.sample
+
+if args.category is not None:
+    category = args.category
 
 if args.num_topics is not None:
     num_topics = args.num_topics
@@ -197,7 +203,7 @@ for person in cv:
     
     
 
-print ('--- Parsing projects data')
+print ('--- Filtering projects')
 
 seq = [x['id'] for x in source_file]
 joblist = seq
@@ -212,9 +218,17 @@ if sample > 0:
     print("  |--- Picking " + str(sample) + " IDs from jobs file")
     source_file = list(filter(lambda source_file: source_file['id'] in joblist, source_file))
     #print(", ".join(str(x) for x in joblist))
-    
+
+if category != "":
+    print("  |--- Filtering by category:", category)
+    source_file = list(filter(lambda source_file: category.lower() in source_file['category'].lower(), source_file))
+
+print("  |--- Number of processing jobs:", str(len(source_file)))
+
 total_skills = []
 docs = []
+
+print ('--- Parsing projects data')
 
 for project in source_file:
     # if sample > 0 and project['id'] not in joblist:
@@ -270,34 +284,6 @@ for project in source_file:
     #       " | Skills: " + ", ".join(project['skills']) + 
     #       " | Category: " + project['category'])
 
-print ('--- Computing skills matrix')
-
-table = {}
-
-skills = unique_skills(total_skills + cv_total_skills)
-upwork_counters = []
-sharpdev_counters = []
-matrix = []
-
-for skill in skills:
-    upwork_counters.append(total_skills.count(skill))
-    sharpdev_counters.append(cv_total_skills.count(skill))
-
-table['skills'] = skills
-table['upwork'] = upwork_counters
-table['sharpdev'] = sharpdev_counters
-
-for person in cv:
-    table[person['name']] = []
-    for skill in skills:
-        table[person['name']].append(person['total_skills'].count(skill))
-    
-df = pd.DataFrame(table)
-df = df.sort_values(by=['upwork'], ascending=[False])
-df.to_csv('matrix.csv', sep='\t', index=False)
-print(df)
-    
-
 print ('--- Computing skills and description relevance')
 
 project_position_relevance = []
@@ -306,39 +292,85 @@ for project in source_file:
     # if project['id'] not in joblist:
     #     continue
     for person in cv:
+        position_relevance = []
         for exp in person['experience']:
             proj_skills = nlp(" ".join(project['skills']))
             pos_skills = nlp(" ".join(exp['skills']))
             skills_sim = proj_skills.similarity(pos_skills)
+        
             if round(skills_sim * 100, 2) > skills_relevance:
                 proj_desc = nlp(project['clean_description'])                
                 pos_desc = nlp(exp['clean_description'])
                 desc_sim = proj_desc.similarity(pos_desc)
-                entry = [project['id'], project['url'],
-                    person['id'], # cv_id
+                overall_skills = nlp(" ".join(unique_skills(person['total_skills'])))
+                overall_skills_sim = proj_skills.similarity(overall_skills)
+                entry = [
+                    project['id'], project['url'],
+                    person['name'], # cv_id
                     exp['id'], # cv position id
-                    skills_sim,
-                    #match_score_skills(project['skills'], cv['experience'][i]['skills']),
-                    desc_sim]
-                project_position_relevance.append(entry)
-                print("ID: " + str(project['id']) + " | " + 
-                    project['title'] + 
-                    " | Skills: " + ", ".join(project['skills']) + 
-                    " | Category: " + project['category'])
-                print("  |--> " + 
-                    person['name'] + 
-                    " | " + exp['title'] + 
-                    " | Skills match: " + str(round(skills_sim * 100, 2)) + 
-                    "% | Desc match: " + str(round(desc_sim * 100, 2)) + "%")
+                    round(skills_sim * 100, 2),
+                    round(desc_sim * 100, 2),
+                    round(overall_skills_sim * 100, 2)
+                    ]
+                position_relevance.append(entry)
+        if position_relevance != []:
+            m = max(position_relevance, key=lambda x: x[4])
+            project_position_relevance.append(entry)
+df = pd.DataFrame(project_position_relevance, columns=[
+    'Project ID', 
+    'Project URL', 
+    'Name', 
+    'CV position', 
+    'Position skills match', 
+    'Position description match',
+    'Overall skills match'])
+df = df.sort_values(by=['Position skills match'], ascending=[False])
+print(df)
+                # print("ID: " + str(project['id']) + " | " + 
+                #     project['title'] + 
+                #     " | Skills: " + ", ".join(project['skills']) + 
+                #     " | Category: " + project['category'])
+                # print("  |--> " + 
+                #     person['name'] + 
+                #     " | " + exp['title'] + 
+                #     " | Skills match: " + str(round(skills_sim * 100, 2)) + 
+                #     "% | Desc match: " + str(round(desc_sim * 100, 2)) + "%")
 
 if args.csv is not None:
     print ('--- Saving relevance table in ' + args.csv)
-    with open(args.csv, 'w', newline='') as file:
-        writer = csv.writer(file)
-        writer.writerow(['project_id', 'upwork_url,' 'cv_id', 'cv_position_id', 'skills_match', 'description_match'])
-        for entry in project_position_relevance:
-            writer.writerow(entry)
+    df.to_csv(args.csv, sep='\t', index=False)
+    # with open(args.csv, 'w', newline='') as file:
+    #     writer = csv.writer(file)
+    #     writer.writerow(['project_id', 'upwork_url,' 'cv_id', 'cv_position_id', 'skills_match', 'description_match'])
+    #     for entry in project_position_relevance:
+    #         writer.writerow(entry)
 
+if args.matrix is not None:
+    print ('--- Computing skills matrix')
+
+    table = {}
+
+    skills = unique_skills(total_skills + cv_total_skills)
+    upwork_counters = []
+    sharpdev_counters = []
+    matrix = []
+
+    for skill in skills:
+        upwork_counters.append(total_skills.count(skill))
+        sharpdev_counters.append(cv_total_skills.count(skill))
+
+    table['skills'] = skills
+    table['upwork'] = upwork_counters
+    table['sharpdev'] = sharpdev_counters
+
+    for person in cv:
+        table[person['name']] = []
+        for skill in skills:
+            table[person['name']].append(person['total_skills'].count(skill))
+        
+    df = pd.DataFrame(table)
+    df = df.sort_values(by=['upwork'], ascending=[False])
+    df.to_csv(args.matrix, sep='\t', index=False)
 
 if args.draw_cv_skills is not None:
     print("--- Plotting CV skills to " + args.draw_cv_skills)
