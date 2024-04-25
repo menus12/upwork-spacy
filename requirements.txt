@@ -1,4 +1,6 @@
+about-time==4.2.1
 absl-py==2.1.0
+alive-progress==3.1.5
 annotated-types==0.6.0
 asttokens==2.4.1
 astunparse==1.6.3
@@ -21,6 +23,7 @@ cytoolz==0.12.3
 decorator==5.1.1
 en-core-web-lg @ https://github.com/explosion/spacy-models/releases/download/en_core_web_lg-3.7.1/en_core_web_lg-3.7.1-py3-none-any.whl#sha256=ab70aeb6172cde82508f7739f35ebc9918a3d07debeed637403c8f794ba3d3dc
 en_use_lg @ https://github.com/MartinoMensio/spacy-universal-sentence-encoder/releases/download/v0.4.6/en_use_lg-0.4.6.tar.gz#sha256=287a364ede06c79d6a4b41302e48dc2409e443d5a8ebd359cdd9b8966e993378
+et-xmlfile==1.1.0
 exceptiongroup==1.2.0
 executing==2.0.1
 filelock==3.13.1
@@ -36,6 +39,7 @@ GitPython==3.1.42
 google-auth==2.28.1
 google-auth-oauthlib==1.2.0
 google-pasta==0.2.0
+grapheme==0.6.0
 graphviz==0.20.1
 grpcio==1.62.0
 h5py==3.10.0
@@ -81,6 +85,7 @@ nvidia-nccl-cu12==2.19.3
 nvidia-nvjitlink-cu12==12.4.99
 nvidia-nvtx-cu12==12.1.105
 oauthlib==3.2.2
+openpyxl==3.1.2
 opt-einsum==3.3.0
 packaging==23.2
 pandas==2.2.1
