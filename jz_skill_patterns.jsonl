@@ -2128,3 +2128,4 @@
 {"label":"SKILL","pattern":[{"LOWER":"zeromq"}]}
 {"label":"SKILL","pattern":[{"LOWER":"zoho"},{"LOWER":"crm"}]}
 {"label":"SKILL","pattern":[{"LOWER":"zookeeper"}]}
+{"label":"SKILL","pattern":[{"LOWER":"kick"},{"LOWER":"ass"},{"LOWER":"engineering"}]}
