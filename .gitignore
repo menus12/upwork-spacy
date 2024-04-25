@@ -1,7 +1,8 @@
 .vscode/launch.json
 kaggle/*
 ./*.html
-relevance.csv
+*.csv
 *.png
 .env
-matrix.csv
+new_skills.yaml
+*.xls
