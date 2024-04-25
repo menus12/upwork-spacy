@@ -1,0 +1,3934 @@
+- id: Amazon
+  products:
+    - id: AWS
+      aliases: 
+        - Amazon Web Services
+      scopes:
+        - id: Cloud
+          aliases:
+            - Cloud copmuting
+            - Cloud platform
+      features:
+        - id: EC2
+          aliases:
+            - Elastic Compute Cloud
+          scopes: 
+            - id: VM
+              aliases: 
+                - Virtual machine
+                - Virtual machines
+                - Virtual machine instances
+        - id: ECR
+          aliases:
+            - Elastic Container Registry
+          scopes: 
+            - id: Container registry
+              aliases: 
+                - Docker registry
+                - Private Docker registry
+        - id: ACM
+          aliases:
+            - AWS Certificate Manager
+          scopes:
+            - id: SSL
+              aliases: 
+                - TLS
+            - id: Certificate management
+              aliases:
+                - Certificate provisioning
+        - id: Amazon Connect
+          aliases:
+            - Connect
+          scopes: 
+            - id: Contact Center
+              aliases: 
+                - Cloud contact center
+                - Customer service solutions
+        - id: API Gateway
+          aliases:
+            - 
+          scopes: 
+            - id: API Management
+              aliases: 
+                - RESTful API management
+                - HTTP APIs
+                - Websocket APIs
+        - id: App Mesh
+          aliases:
+            - 
+          scopes: 
+            - id: Service Mesh
+              aliases: 
+                - Microservices communication
+                - Application-level networking
+        - id: AppSync
+          aliases:
+            - 
+          scopes: 
+            - id: GraphQL
+              aliases: 
+                - Real-time data synchronization
+                - Serverless backend for mobile, web, and enterprise applications
+        - id: Athena
+          aliases:
+            - 
+          scopes: 
+            - id: Query Service
+              aliases: 
+                - Interactive Query Service
+                - SQL queries in S3
+                - Serverless query service
+        - id: Auto Scaling
+          aliases:
+            - 
+          scopes: 
+            - id: Scalability
+              aliases: 
+                - Automatic resource scaling
+                - Scale compute capacity
+        - id: Batch
+          aliases:
+            - AWS Batch
+          scopes: 
+            - id: Batch Computing
+              aliases: 
+                - Job scheduling
+                - Batch processing
+        - id: CDK
+          aliases:
+            - Cloud Development Kit
+          scopes: 
+            - id: IaC
+              aliases: 
+                - Infrastructure as Code
+                - Infrastructure-as-Code
+        - id: Chime
+          aliases:
+            - 
+          scopes: 
+            - id: Communication Service
+              aliases: 
+                - Online meetings
+                - Video conferencing
+
+        - id: CLI
+          aliases:
+            - Command Line Interface
+          scopes: 
+            - id: Management Tool
+              aliases: 
+                - Command line tools
+
+        - id: Cloud9
+          aliases:
+            - 
+          scopes: 
+            - id: IDE
+              aliases: 
+                - Integrated Development Environment
+                - Cloud-based coding
+
+        - id: CloudFormation
+          aliases:
+            - 
+          scopes: 
+            - id: IaC
+              aliases: 
+                - Infrastructure as Code
+                - Infrastructure-as-Code
+                - Automate infrastructure
+
+        - id: CloudFront
+          aliases:
+            - 
+          scopes: 
+            - id: CDN
+              aliases: 
+                - Content Delivery Network
+                - Web distribution
+
+        - id: CloudSearch
+          aliases:
+            - 
+          scopes: 
+            - id: Managed Search Service
+              aliases: 
+                - Search solutions
+                - Cloud-based search
+
+        - id: CloudTrail
+          aliases:
+            - 
+          scopes: 
+            - id: Logging Service
+              aliases: 
+                - Activity tracking
+                - Compliance
+                - Audit
+
+        - id: CloudWatch
+          aliases:
+            - 
+          scopes: 
+            - id: Monitoring Service
+              aliases: 
+                - Performance monitoring
+                - health check
+
+        - id: CodeArtifact
+          aliases:
+            - 
+          scopes: 
+            - id: Artifact Management
+              aliases: 
+                - artifact storage
+                - Package management
+
+        - id: CodeBuild
+          aliases:
+            - 
+          scopes: 
+            - id: Artifacts
+              aliases: 
+                - Build and test code
+                - Continuous integration
+
+        - id: CodeCommit
+          aliases:
+            - 
+          scopes:
+            - id: Source Control
+              aliases:
+                - Source control
+                - Repositories
+                - Git
+
+        - id: CodeDeploy
+          aliases:
+            - 
+          scopes:
+            - id: CI CD
+              aliases:
+                - Automated deployment
+                - Software deployment
+                - Deployment automation
+                - Continuous deployment
+                - Continuous delivery
+
+        - id: CodePipeline
+          aliases:
+            - 
+          scopes:
+            - id: CI CD
+              aliases:
+                - Continuous integration
+                - Continuous delivery
+                - CI/CD pipeline
+
+        - id: CodeStar
+          aliases:
+            - 
+          scopes:
+            - id: Project Management
+              aliases:
+                - CI/CD projects
+                - Project templates
+
+        - id: Cognito
+          aliases:
+            - 
+          scopes:
+            - id: Identity Service
+              aliases:
+                - User identity 
+                - Data synchronization
+                - Authentication
+                - Authorization
+                - User management
+
+        - id: Comprehend
+          aliases:
+            - 
+          scopes:
+            - id: NLP
+              aliases:
+                - Text analysis
+                - Language detection
+                - Natural Language Processing
+
+        - id: AWS Config
+          aliases:
+            - 
+          scopes:
+            - id: Configuration Management
+              aliases:
+                - Resource inventory
+                - configuration history 
+                - change notifications
+                - resource compliance auditing
+
+        - id: Data Pipeline
+          aliases:
+            - 
+          scopes:
+            - id: Workflow Automation
+              aliases:
+                - Data movement 
+                - Data transformation
+
+        - id: AWS Shield
+          aliases:
+            - 
+          scopes:
+            - id: DDoS Protection
+              aliases:
+                - Managed DDoS protection
+                - DDoS mitigation
+
+        - id: AWS DevOps
+          aliases:
+            - Amazon DevOps
+          scopes:
+            - id: CI CD
+              aliases:
+                - Continuous integration
+                - Continuous delivery
+                - CI/CD pipeline
+
+        - id: DocumentDB
+          aliases:
+            - 
+          scopes:
+            - id: NoSQL
+              aliases:
+                - Managed MongoDB
+                - Document database service
+
+        - id: DynamoDB
+          aliases:
+            - 
+          scopes:
+            - id: NoSQL
+              aliases:
+                - Managed NoSQL
+                - Key-value database
+                - document database
+
+        - id: EBS
+          aliases:
+            - Elastic Block Store
+          scopes:
+            - id: Block Storage
+              aliases:
+                - 
+
+        - id: ECS
+          aliases:
+            - Elastic Container Service
+          scopes:
+            - id: Container Management
+              aliases:
+                - Managed container orchestration service
+                - Docker container service
+
+        - id: EFS
+          aliases:
+            - Elastic File System
+          scopes:
+            - id: File Storage
+              aliases:
+                - Managed file storage
+                - Cloud-native NFS
+
+        - id: EKS
+          aliases:
+            - Elastic Kubernetes Service
+          scopes:
+            - id: Kubernetes
+              aliases:
+                - Managed Kubernetes service
+                - Container orchestration service
+
+        - id: EMR
+          aliases:
+            - Elastic MapReduce
+          scopes:
+            - id: Big Data Processing
+              aliases:
+                - Managed Hadoop framework
+                - Big data frameworks service
+
+        - id: ElastiCache
+          aliases:
+            - 
+          scopes:
+            - id: In memory Data Store
+              aliases:
+                - In-memory Data Store
+                - Managed Redis and Memcached
+                - Caching service
+
+        - id: Elasticsearch 
+          aliases:
+            - 
+          scopes:
+            - id: Search and Analytics Engine
+              aliases:
+                - Managed Elasticsearch
+                - Search and data analysis
+
+        - id: SES
+          aliases:
+            - EmailServices 
+          scopes:
+            - id: Email Sending and Receiving
+              aliases:
+                - Simple Email Service
+                - Email delivery service
+
+        - id: EventBridge
+          aliases:
+            - 
+          scopes:
+            - id: Serverless Event Bus
+              aliases:
+                - Event-driven application integration
+                - Event routing
+
+        - id: Fargate
+          aliases:
+            - 
+          scopes:
+            - id: Serverless Compute Engine
+              aliases:
+                - Container execution service
+                - Manage containers without servers
+
+        - id: AWS Forecast
+          aliases:
+            - Amazon Forecast
+          scopes:
+            - id: Predictive Analytics
+              aliases:
+                - Time-series forecasting
+                - Machine learning forecasting service
+
+        - id: FSx
+          aliases:
+            - FSx for Windows File Server
+            - FSx for Lustre
+          scopes:
+            - id: File System
+              aliases:
+                - Managed Lustre file system
+                - HPC file system
+
+        - id: GameLift
+          aliases:
+            - 
+          scopes:
+            - id: Game Server Hosting
+              aliases:
+                - Managed game server service
+                - Online game hosting
+
+        - id: API Gateway
+          aliases:
+            - AWS Gateway
+            - Amazon Gateway
+          scopes:
+            - id: API Management
+              aliases:
+                - RESTful API and WebSocket API management
+                - API Gateway service
+
+        - id: Global Accelerator
+          aliases:
+            - 
+          scopes:
+            - id: Network Layer Service
+              aliases:
+                - Improve application availability and performance
+                - Global traffic management
+
+        - id: AWS Glue
+          aliases:
+            - 
+          scopes:
+            - id: ETL
+              aliases:
+                - Serverless data integration
+
+        - id: GuardDuty
+          aliases:
+            - 
+          scopes:
+            - id: Threat Detection
+              aliases:
+                - Managed threat detection
+                - Continuous security monitoring
+
+        - id: AWS Health
+          aliases:
+            - Amazon Health
+          scopes:
+            - id: Health Dashboard
+              aliases:
+                - AWS service health
+                - Personalized view of AWS service health
+
+        - id: Honeycode
+          aliases:
+            - 
+          scopes:
+            - id: App Development
+              aliases:
+                - Build web and mobile applications
+                - No-code app builder
+
+        - id: IAM
+          aliases:
+            - Identity and Access Management
+          scopes:
+            - id: Access Control
+              aliases:
+                - Manage user access and encryption keys
+                - Secure cloud resource access
+
+        - id: AWS Inspector
+          aliases:
+            - Amazon Inspector
+          scopes:
+            - id: Security Assessment Service
+              aliases:
+                - Automated security assessment
+                - Application security
+
+        - id: IoT Core
+          aliases:
+            - 
+          scopes:
+            - id: IoT Platform
+              aliases:
+                - Connect devices to the cloud
+                - Device management
+
+        - id: IoT Greengrass
+          aliases:
+            - 
+          scopes:
+            - id: Edge Computing
+              aliases:
+                - Local compute, messaging, data caching
+                - Extend AWS to edge devices
+
+        - id: Kendra
+          aliases:
+            - 
+          scopes:
+            - id: Enterprise Search
+              aliases:
+                - Intelligent search service
+                - Natural language search
+
+        - id: Kinesis Firehose
+          aliases:
+            - 
+          scopes:
+            - id: Data Ingestion Service
+              aliases:
+                - Stream data into AWS
+                - Real-time data streaming
+
+        - id: KMS
+          aliases:
+            - Key Management Service
+          scopes:
+            - id: Cryptography
+              aliases:
+                - Manage cryptographic keys
+                - Encryption and decryption
+
+        - id: Lambda
+          aliases:
+            - 
+          scopes:
+            - id: Compute Service
+              aliases:
+                - Serverless computing
+                - Run code in response to triggers
+
+        - id: Lex
+          aliases:
+            - 
+          scopes:
+            - id: Conversational Interfaces
+              aliases:
+                - Build chatbots
+                - Natural language understanding
+
+        - id: Lightsail
+          aliases:
+            - 
+          scopes:
+            - id: Virtual Private Server
+              aliases:
+                - Simplified cloud computing
+                - Managed services
+
+        - id: ELB
+          aliases:
+            - Elastic Load Balancing
+          scopes:
+            - id: Traffic Distribution
+              aliases:
+                - Distribute incoming traffic
+                - Increase application scalability
+
+        - id: Macie
+          aliases:
+            - Macie
+          scopes:
+            - id: Data Security
+              aliases:
+                - Discover and protect sensitive data
+                - Machine learning for data security
+
+        - id: Managed Blockchain
+          aliases:
+            - 
+          scopes:
+            - id: Blockchain 
+              aliases:
+                - Create and manage blockchain networks
+                - Blockchain as a Service
+
+        - id: MediaConnect
+          aliases:
+            - 
+          scopes:
+            - id: Live Video Transport
+              aliases:
+                - Secure live video transport
+                - Broadcast-quality video transport
+
+        - id: MediaConvert
+          aliases:
+            - 
+          scopes:
+            - id: Video Processing
+              aliases:
+                - File-based video transcoding
+                - Create broadcast and streaming video
+
+        - id: MediaLive
+          aliases:
+            - 
+          scopes:
+            - id: Live Video Processing
+              aliases:
+                - Broadcast live video
+                - Live video encoding
+
+        - id: MediaPackage
+          aliases:
+            - 
+          scopes:
+            - id: Video Packaging
+              aliases:
+                - Prepare and protect video delivery
+                - Video content delivery
+
+        - id: MediaStore
+          aliases:
+            - 
+          scopes:
+            - id: Media Storage
+              aliases:
+                - Store and retrieve media assets
+                - High-performance media storage
+
+        - id: MediaTailor
+          aliases:
+            - 
+          scopes:
+            - id: Ad Personalization
+              aliases:
+                - Video personalization and monetization
+                - Personalized ad insertion
+
+        - id: Mobile Hub
+          aliases:
+            - 
+          scopes:
+            - id: Mobile Application Development
+              aliases:
+                - Simplify mobile application development
+                - Backend features for mobile apps
+
+        - id: Neptune
+          aliases:
+            - 
+          scopes:
+            - id: Graph Database
+              aliases:
+                - Managed graph database
+                - Store and navigate relationships
+
+        - id: OpsWorks
+          aliases:
+            - 
+          scopes:
+            - id: Configuration Management
+              aliases:
+                - Manage servers
+                - Application deployment
+
+        - id: Organizations
+          aliases:
+            - 
+          scopes:
+            - id: Account Management
+              aliases:
+                - Centralize billing
+                - Manage multiple AWS accounts
+
+        - id: Outposts
+          aliases:
+            - 
+          scopes:
+            - id: Hybrid Cloud
+              aliases:
+                - Extend AWS infrastructure, APIs, and services to on-premises
+                - On-premises cloud services
+
+        - id: Personalize
+          aliases:
+            - 
+          scopes:
+            - id: Personalization and Recommendation
+              aliases:
+                - Machine learning-based recommendations
+                - Personalize user experience
+
+        - id: Pinpoint
+          aliases:
+            - 
+          scopes:
+            - id: Marketing Communications
+              aliases:
+                - push notifications
+                - Email
+                - SMS
+                - voice messaging
+
+        - id: Polly
+          aliases:
+            - 
+          scopes:
+            - id: Text-to-Speech Service
+              aliases:
+                - Convert text into speech
+                - Speech-enabled applications
+
+        - id: QLDB
+          aliases:
+            - Quantum Ledger Database
+          scopes:
+            - id: Ledger Database
+              aliases:
+                - Immutable and cryptographically verifiable ledger database
+                - Track data changes over time
+
+        - id: Quicksight
+          aliases:
+            - 
+          scopes:
+            - id: Business Intelligence
+              aliases:
+                - Cloud-powered business analytics service
+                - Create and share dashboards
+
+        - id: RDS
+          aliases:
+            - Relational Database Service
+          scopes:
+            - id: Relational Database
+              aliases:
+                - Managed relational database service
+                - SQL, MySQL, PostgreSQL, Oracle, and MariaDB databases
+
+        - id: Redshift
+          aliases:
+            - 
+          scopes:
+            - id: Data Warehousing
+              aliases:
+                - Fast, scalable data warehouse
+                - Analyze data across your data warehouse and data lake
+
+        - id: Rekognition
+          aliases:
+            - 
+          scopes:
+            - id: Image and Video Analysis
+              aliases:
+                - Deep learning-based image and video analysis
+                - Identify objects, people, text, scenes, and activities
+
+        - id: RoboMaker
+          aliases:
+            - 
+          scopes:
+            - id: Robotics Development
+              aliases:
+                - robotics applications
+                - robotics development
+                - Simulation-based robotics 
+
+        - id: Route 53
+          aliases:
+            - 
+          scopes:
+            - id: DNS Web Service
+              aliases:
+                - Scalable Domain Name System
+                - Connect user requests to infrastructure
+
+        - id: S3
+          aliases:
+            - Simple Storage Service
+          scopes:
+            - id: Object Storage
+              aliases:
+                - Store and retrieve any amount of data
+                - Highly-scalable object storage
+
+        - id: Glacier
+          aliases:
+            - S3 Glacier
+          scopes:
+            - id: Archive Storage
+              aliases:
+                - Secure, durable, and low-cost storage service for data archiving
+                - Long-term backup
+
+        - id: SageMaker
+          aliases:
+            - SageMaker
+          scopes:
+            - id: Machine Learning
+              aliases:
+                - machine learning models
+                - managed machine learning
+
+        - id: Secrets Manager
+          aliases:
+            - 
+          scopes:
+            - id: Secrets Management
+              aliases:
+                - Manage secrets
+                - retrieve secrets
+                - store secrets
+                - Rotate secrets
+
+        - id: Security Hub
+          aliases:
+            - 
+          scopes:
+            - id: Security Management
+              aliases:
+                - Centralize and monitor security alerts
+                - Automated security checks
+
+        - id: Serverless
+          aliases:
+            - 
+          scopes:
+            - id: Compute
+              aliases:
+                - Run code without provisioning or managing servers
+                - Event-driven compute services
+
+        - id: Service Catalog
+          aliases:
+            - AWS Service Catalog
+          scopes:
+            - id: Service Management
+              aliases:
+                - Manage approved IT services
+                - Organize, govern, and provision cloud resources
+
+        - id: SimpleDB
+          aliases:
+            - 
+          scopes:
+            - id: NoSQL
+              aliases:
+                - Store and query data items via web services
+                - Managed NoSQL database
+
+        - id: Snowball
+          aliases:
+            - 
+          scopes:
+            - id: Data Transport
+              aliases:
+                - Physical data transport solution
+                - Transfer large amounts of data into and out of AWS
+
+        - id: SNS
+          aliases:
+            - Simple Notification Service
+          scopes:
+            - id: Messaging
+              aliases:
+                - Fully managed pub/sub messaging service
+                - Fan out messages to a large number of subscribers
+
+        - id: SQS
+          aliases:
+            - Simple Queue Service
+          scopes:
+            - id: Message Queuing
+              aliases:
+                - Decouple microservices
+                - scale microservices, 
+                - distributed systems
+                - serverless applications
+
+        - id: Step Functions
+          aliases:
+            - 
+          scopes:
+            - id: Workflow Automation
+              aliases:
+                - Coordinate services 
+                - serverless workflows
+
+        - id: Storage Gateway
+          aliases:
+            - 
+          scopes:
+            - id: Hybrid Cloud Storage
+              aliases:
+                - Connect on-premises applications with cloud-based storage
+                - Securely store data in the AWS cloud
+
+        - id: SWF
+          aliases:
+            - Simple Workflow Service
+          scopes:
+            - id: Workflow Management
+              aliases:
+                - Coordinate work across distributed application components
+                - Manage workflow execution
+
+        - id: Textract
+          aliases:
+            - 
+          scopes:
+            - id: Document Analysis
+              aliases:
+                - Extract text and data from documents
+                - Automated document processing
+
+        - id: Transcribe
+          aliases:
+            - 
+          scopes:
+            - id: Speech-to-Text
+              aliases:
+                - Convert speech into text
+                - Automated speech recognition
+
+        - id: Transfer for SFTP
+          aliases:
+            - 
+          scopes:
+            - id: SFTP
+              aliases:
+                - Managed SFTP
+                - Secure File Transfer
+
+        - id: Translate
+          aliases:
+            - 
+          scopes:
+            - id: Machine Translation
+              aliases:
+                - Natural language translation
+                - Translate text 
+
+        - id: Trusted Advisor
+          aliases:
+            - 
+          scopes:
+            - id: Optimization Recommendations
+              aliases:
+                - Provide best practices 
+                - Save money
+                - improve system performance
+                - close security gaps
+                - Cloud optimization
+
+        - id: VPC
+          aliases:
+            - Virtual Private Cloud
+          scopes:
+            - id: Networking
+              aliases:
+                - isolated virtual network
+                - virtual networking environment
+
+        - id: WAF
+          aliases:
+            - Web Application Firewall
+          scopes:
+            - id: Application Security
+              aliases:
+                - Protect web applications from common web exploits
+                - Security rules to allow or block web traffic
+
+        - id: WorkDocs
+          aliases:
+            - 
+          scopes:
+            - id: Storage
+              aliases:
+                - secure document storage
+                - sharing service
+                - Secure Enterprise Storage
+                - Content collaboration
+
+        - id: WorkLink
+          aliases:
+            - 
+          scopes:
+            - id: Mobile Browsing
+              aliases:
+                - mobile access
+                - Streamline access
+
+        - id: WorkMail
+          aliases:
+            - 
+          scopes:
+            - id: Email
+              aliases:
+                - Secure email 
+                - calendaring service
+                - Managed business email
+
+        - id: WorkSpaces
+          aliases:
+            - 
+          scopes:
+            - id: DaaS
+              aliases:
+                - cloud-based desktop
+                - Desktop-as-a-Service
+
+        - id: X-Ray
+          aliases:
+            - 
+          scopes:
+            - id: Application Analysis
+              aliases:
+                - Analyze production 
+                - debug production 
+                - distributed applications
+                - Trace requests 
+                - map requests
+
+- id: Microsoft
+  products:
+    - id: Azure
+      aliases: 
+        - 
+      scopes:
+        - id: Cloud
+          aliases:
+            - Cloud copmuting
+            - Cloud platform
+      features:
+        - id: AKS
+          aliases:
+            - Azure Kubernetes Service
+          scopes: 
+            - id: Container Orchestration
+              aliases: 
+                - Managed Kubernetes
+                - Kubernetes
+                - Container management
+
+        - id: Analysis Services
+          aliases:
+            - 
+          scopes:
+            - id: Data Analysis
+              aliases:
+                - Data modeling
+                - OLAP
+
+        - id: API Management
+          aliases:
+            - 
+          scopes:
+            - id: API Gateway
+              aliases:
+                - API hosting
+                - API lifecycle management
+
+        - id: App Center
+          aliases:
+            - 
+          scopes:
+            - id: Continuous Integration and Delivery
+              aliases:
+                - Mobile app CI/CD
+                - App analytics
+
+        - id: App Service Certificates
+          aliases:
+            - 
+          scopes:
+            - id: SSL/TLS Certificates Management
+              aliases:
+                - Secure domains
+                - Certificate lifecycle management
+
+        - id: Bastion
+          aliases:
+            - Azure Bastion
+          scopes:
+            - id: Remote Access
+              aliases:
+                - RDP and SSH over SSL
+                - Zero Trust access
+
+        - id: Blob Storage
+          aliases:
+            - 
+          scopes:
+            - id: Object Storage
+              aliases:
+                - Scalable storage
+                - Data lake
+
+        - id: Blockchain Service
+          aliases:
+            - 
+          scopes:
+            - id: Blockchain as a Service
+              aliases:
+                - Consortium networks
+                - Smart contracts
+
+        - id: Bot Services
+          aliases:
+            - 
+          scopes:
+            - id: Conversational AI
+              aliases:
+                - Chatbots
+                - AI bots
+
+        - id: Cache for Redis
+          aliases:
+            - 
+          scopes:
+            - id: In memory Data Store
+              aliases:
+                - In-memory Data Store
+                - High-performance cache
+                - Redis
+
+        - id: CLI
+          aliases:
+            - Azure Command Line Interface
+            - AZCLI
+          scopes:
+            - id: Cloud Management
+              aliases:
+                - Command-line tools
+                - Automation
+
+        - id: Cognitive Search
+          aliases:
+            - Azure Cognitive Search
+          scopes:
+            - id: AI-powered Search
+              aliases:
+                - Search as a service
+                - Content indexing
+
+        - id: Cognitive Services
+          aliases:
+            - 
+          scopes:
+            - id: AI Services
+              aliases:
+                - Computer vision
+                - Natural language processing
+
+        - id: Container Instances
+          aliases:
+            - 
+          scopes:
+            - id: Container Management
+              aliases:
+                - Serverless containers
+                - Event-driven containers
+
+        - id: CDN
+          aliases:
+            - Content Delivery Network
+          scopes:
+            - id: Content Distribution
+              aliases:
+                - Global content delivery
+                - Web acceleration
+
+        - id: CosmosDB
+          aliases:
+            - Cosmos DB
+          scopes:
+            - id: NoSQL Database
+              aliases:
+                - Globally distributed database
+                - Multi-model database service
+
+        - id: Data Catalog
+          aliases:
+            - 
+          scopes:
+            - id: Data Discovery and Management
+              aliases:
+                - Data source discovery
+                - Metadata management
+
+        - id: Data Explorer
+          aliases:
+            - 
+          scopes:
+            - id: Data Analytics
+              aliases:
+                - Big data analytics
+                - Real-time analytics
+
+        - id: Data Factory
+          aliases:
+            - 
+          scopes:
+            - id: Data Integration Service
+              aliases:
+                - Data movement
+                - ETL/ELT service
+
+        - id: Data Lake Storage
+          aliases:
+            - 
+          scopes:
+            - id: Scalable Data Lake
+              aliases:
+                - Big data analytics storage
+                - Hadoop data lake
+
+        - id: Databricks
+          aliases:
+            - Azure Databricks
+          scopes:
+            - id: Analytics Platform
+              aliases:
+                - Apache Spark-based analytics
+                - Machine learning platform
+
+        - id: DDos Protection
+          aliases:
+            - DDos Protection Service
+          scopes:
+            - id: Network Security
+              aliases:
+                - DDoS attack mitigation
+                - Enhanced network protection
+
+        - id: Azure DevOps
+          aliases:
+            - VSTS
+          scopes:
+            - id: Software Development and Delivery
+              aliases:
+                - Continuous integration and delivery
+                - Agile project planning
+
+        - id: Azure DNS 
+          aliases:
+            - Traffic Manager
+          scopes:
+            - id: DNS
+              aliases:
+                - Domain name system
+                - Traffic routing
+
+        - id: Event Hubs
+          aliases:
+            - 
+          scopes:
+            - id: Event Streaming
+              aliases:
+                - Real-time data ingestion
+                - Big data streaming platform
+
+        - id: Azure Files
+          aliases:
+            - 
+          scopes:
+            - id: File Storage
+              aliases:
+                - Managed file shares
+                - Cloud file sharing
+
+        - id: Front Door
+          aliases:
+            - 
+          scopes:
+            - id: Content Delivery and Global Routing
+              aliases:
+                - Web application acceleration
+                - Global HTTP load balancing
+
+        - id: Azure Functions
+          aliases:
+            - 
+          scopes:
+            - id: Serverless Computing
+              aliases:
+                - Event-driven execution
+                - Microservices
+
+        - id: HDInsight
+          aliases:
+            - 
+          scopes:
+            - id: Big Data Analytics
+              aliases:
+                - Managed Hadoop service
+                - Spark, HBase, and Storm clusters
+
+        - id: Information Protection
+          aliases:
+            - 
+          scopes:
+            - id: Data Security
+              aliases:
+                - Secure and manage documents and emails
+                - Data protection
+
+        - id: IoT Edge
+          aliases:
+            - 
+          scopes:
+            - id: Edge Computing
+              aliases:
+                - Deploy cloud intelligence locally
+                - IoT devices
+
+        - id: IoT Hub
+          aliases:
+            - 
+          scopes:
+            - id: IoT Platform
+              aliases:
+                - Device management and communications
+                - IoT solution backend
+
+        - id: Key Vault
+          aliases:
+            - 
+          scopes:
+            - id: Secrets Management
+              aliases:
+                - Manage cryptographic keys and secrets
+                - Secure access to tokens, passwords, and certificates
+
+        - id: Lighthouse
+          aliases:
+            - 
+          scopes:
+            - id: Management and Governance
+              aliases:
+                - Cross-account management
+                - Delegated resources management
+
+        - id: Load Balancing
+          aliases:
+            - 
+          scopes:
+            - id: Network Traffic Distribution
+              aliases:
+                - Distribute incoming network traffic
+                - High availability and reliability
+
+        - id: Logic Apps
+          aliases:
+            - 
+          scopes:
+            - id: Business Process Automation
+              aliases:
+                - Design and automate workflows
+                - Connect apps, data, and services
+
+        - id: Azure ML
+          aliases:
+            - Azure Machine Learning
+          scopes:
+            - id: AI Development
+              aliases:
+                - Build, train, and deploy models
+                - Scalable machine learning solutions
+
+        - id: Managed Disks
+          aliases:
+            - 
+          scopes:
+            - id: Block Storage
+              aliases:
+                - High-performance, durable block storage
+                - Disk storage for VMs
+
+        - id: Azure Maps
+          aliases:
+            - 
+          scopes:
+            - id: Geospatial Services
+              aliases:
+                - Location APIs
+                - Spatial analytics
+
+        - id: Media Services
+          aliases:
+            - 
+          scopes:
+            - id: Digital Media Content
+              aliases:
+                - Secure video streaming
+                - Encoding and live or on-demand streaming
+
+        - id: Azure Monitor
+          aliases:
+            - 
+          scopes:
+            - id: Monitoring and Analytics
+              aliases:
+                - Full stack monitoring
+                - Insights across applications, workloads, and infrastructure
+
+        - id: NetApp Files
+          aliases:
+            - Azure NetApp Files
+          scopes:
+            - id: File Storage
+              aliases:
+                - Enterprise-grade file storage
+                - High-performance file system
+
+        - id: Notification Hubs
+          aliases:
+            - 
+          scopes:
+            - id: Mobile Push Notifications
+              aliases:
+                - Send push notifications to any platform
+                - Scalable mobile push notification engine
+
+        - id: Orbital
+          aliases:
+            - 
+          scopes:
+            - id: Satellite Ground Station
+              aliases:
+                - Satellite communication
+                - Ground station as a service
+
+        - id: PlayFab
+          aliases:
+            - 
+          scopes:
+            - id: Game Development
+              aliases:
+                - LiveOps, Real-time analytics
+                - Game services platform
+
+        - id: Azure Policy
+          aliases:
+            - 
+          scopes:
+            - id: Governance
+              aliases:
+                - Enforce organizational standards
+                - Assess compliance at scale
+
+        - id: PowerShell 
+          aliases:
+            - PowerShell CLI
+          scopes:
+            - id: Management and Automation
+              aliases:
+                - Automate Azure tasks using PowerShell
+                - Command-line and scripting
+
+        - id: Private Link
+          aliases:
+            - 
+          scopes:
+            - id: Network Security
+              aliases:
+                - Private access to Azure services
+                - Secure and private connectivity
+
+        - id: Purview
+          aliases:
+            - Azure Purview
+          scopes:
+            - id: Data Governance
+              aliases:
+                - Unified data governance service
+                - Data discovery and classification
+
+        - id: Quantum
+          aliases:
+            - Azure Quantum
+          scopes:
+            - id: Quantum Computing
+              aliases:
+                - Quantum technologies and solutions
+                - Quantum development
+
+        - id: Queue Storage
+          aliases:
+            - 
+          scopes:
+            - id: Message Queuing
+              aliases:
+                - Asynchronously communicate between application components
+                - Message queue for large workloads
+
+        - id: Redis
+          aliases:
+            - Azure Cache for Redis
+          scopes:
+            - id: Caching
+              aliases:
+                - High-performance data storage and caching
+                - In-memory database
+
+        - id: Resource Manager
+          aliases:
+            - Azure RM
+            - AzureRM
+          scopes:
+            - id: Infrastructure Management
+              aliases:
+                - Automate and manage Azure resources
+                - Template-based deployment
+
+        - id: Cognitive Search
+          aliases:
+            - 
+          scopes:
+            - id: Search
+              aliases:
+                - Full-text search over content
+                - AI-enriched indexing and search
+                - AI-powered serach
+
+        - id: Security Center
+          aliases:
+            - 
+          scopes:
+            - id: Security Management
+              aliases:
+                - Unified security management
+                - Advanced threat protection
+
+        - id: Sentinel
+          aliases:
+            - Azure Sentinel
+          scopes:
+            - id: SIEM
+              aliases:
+                - Security information and event management
+                - Security analytics and threat intelligence
+
+        - id: Service Bus
+          aliases:
+            - 
+          scopes:
+            - id: Messaging
+              aliases:
+                - Reliable cloud messaging as a service (MaaS)
+                - Connect across private and public cloud environments
+
+        - id: SignalR
+          aliases:
+            - SignalR Service
+          scopes:
+            - id: Real-time Web Communication
+              aliases:
+                - Add real-time web functionalities
+                - Bi-directional communication between server and client
+
+        - id: Site Recovery
+          aliases:
+            - 
+          scopes:
+            - id: Disaster Recovery
+              aliases:
+                - Business continuity
+                - Data replication and failover
+
+        - id: Azure Sphere
+          aliases:
+            - 
+          scopes:
+            - id: IoT Security
+              aliases:
+                - Securely connect IoT devices
+                - Microcontroller (MCU) security
+
+        - id: Spring Cloud
+          aliases:
+            - Azure Spring Cloud
+          scopes:
+            - id: Java Spring Applications
+              aliases:
+                - Managed Spring Cloud service
+                - Build and operate microservice applications
+
+        - id: SQL Database
+          aliases:
+            - 
+          scopes:
+            - id: Relational Database Service
+              aliases:
+                - Managed SQL database
+                - Scalable database with intelligence and security
+
+        - id: SQL Managed Instance
+          aliases:
+            - 
+          scopes:
+            - id: SQL Server Migration
+              aliases:
+                - Fully managed SQL Server instance
+                - Near 100% compatibility with on-premises SQL Server
+
+        - id: Azure Stack
+          aliases:
+            - 
+          scopes:
+            - id: Hybrid Cloud Platform
+              aliases:
+                - Extend Azure services and capabilities on-premises
+                - Hybrid cloud applications
+
+        - id: Stack HCI
+          aliases:
+            - 
+          scopes:
+            - id: Hyper-converged Infrastructure
+              aliases:
+                - Modernize datacenter with hybrid cloud
+                - Scalable virtualization and storage
+
+        - id: Static Web Apps
+          aliases:
+            - 
+          scopes:
+            - id: Web Application Hosting
+              aliases:
+                - Modern web app service
+                - Automated builds and global distribution
+
+        - id: Stream Analytics
+          aliases:
+            - 
+          scopes:
+            - id: Real-time Data Stream Processing
+              aliases:
+                - Analyze and process high volumes of data in real time
+                - Stream big data analytics
+
+        - id: Synapse Analytics
+          aliases:
+            - 
+          scopes:
+            - id: Analytics Service
+              aliases:
+                - Big data and data warehouse analytics
+                - Unified analytics platform
+
+        - id: Templates
+          aliases:
+            - Azure Resource Manager Templates
+          scopes:
+            - id: Infrastructure as Code
+              aliases:
+                - Automate deployment
+                - JSON templates for resource deployment
+
+        - id: ARM Templates
+          aliases:
+            - 
+          scopes:
+            - id: Deployment and Management
+              aliases:
+                - Declarative syntax for defining Azure resources
+                - Manage Azure resources as a group
+
+        - id: Time Series Insights
+          aliases:
+            - 
+          scopes:
+            - id: Data Analytics
+              aliases:
+                - Analyze time-series data in real-time
+                - IoT data analytics
+
+        - id: Virtual Machine Scale Sets
+          aliases:
+            - 
+          scopes:
+            - id: Auto-scaling
+              aliases:
+                - Manage and scale up to thousands of VMs
+                - Automated scalability
+
+        - id: Virtual Machines
+          aliases:
+            - 
+          scopes:
+            - id: Computing
+              aliases:
+                - On-demand scalable computing resources
+                - Wide range of computing solutions
+
+        - id: Virtual Network
+          aliases:
+            - 
+          scopes:
+            - id: Networking
+              aliases:
+                - Isolated network environment
+                - Securely connect Azure resources
+
+        - id: Virtual WAN
+          aliases:
+            - 
+          scopes:
+            - id: Wide Area Networking
+              aliases:
+                - Simplified global connectivity
+                - Optimized routing
+
+        - id: VMware Solution
+          aliases:
+            - Azure VMware Solution
+          scopes:
+            - id: VMware Cloud Infrastructure
+              aliases:
+                - VMware environment in Azure
+                - Extend and migrate VMware workloads to Azure
+
+        - id: Azure VPN Gateway
+          aliases:
+            - 
+          scopes:
+            - id: Network Gateway
+              aliases:
+                - Secure and reliable connectivity
+                - Connects Azure to on-premises networks
+
+        - id: WAF
+          aliases:
+            - Web Application Firewall
+          scopes:
+            - id: Application Security
+              aliases:
+                - Protect web apps from common vulnerabilities
+                - Centralized web app protection
+
+        - id: Web Apps
+          aliases:
+            - Azure App Service Web Apps
+          scopes:
+            - id: Web Hosting
+              aliases:
+                - Build and host web applications
+                - High availability and auto-scaling
+
+- id: Google
+  products:
+    - id: GCP
+      aliases: 
+        - Google Cloud Platform
+        - Google Cloud
+      scopes:
+        - id: Cloud
+          aliases:
+            - Cloud copmuting
+            - Cloud platform
+      features:
+        - id: GKE
+          aliases:
+            - Google Kubernetes Engine
+          scopes: 
+            - id: Container Orchestration
+              aliases: 
+                - Managed Kubernetes
+                - Kubernetes
+                - Container management
+
+
+        - id: Bigtable
+          aliases:
+            - 
+          scopes: 
+            - id: NoSQL Database
+              aliases: 
+                - High throughput and scalability
+                - Big data and operational databases
+
+        - id: AutoML
+          aliases:
+            - 
+          scopes: 
+            - id: Machine Learning Models
+              aliases: 
+                - Train high-quality custom machine learning models
+                - No coding required
+
+        - id: GCP Build
+          aliases:
+            - Cloud Build
+          scopes: 
+            - id: Continuous Integration and Delivery
+              aliases: 
+                - Automate builds and tests
+                - CI/CD platform
+
+        - id: CDN
+          aliases:
+            - Cloud CDN
+          scopes: 
+            - id: Content Delivery Network
+              aliases: 
+                - Fast, reliable web and video content delivery
+                - Global content delivery network
+
+        - id: Composer
+          aliases:
+            - Cloud Composer
+          scopes: 
+            - id: Workflow Orchestration
+              aliases: 
+                - Managed workflow orchestration service
+                - Apache Airflow in the cloud
+
+        - id: Data Fusion
+          aliases:
+            - 
+          scopes: 
+            - id: Data Integration
+              aliases: 
+                - Build and manage data pipelines
+                - Code-free data integration
+
+        - id: DLP
+          aliases:
+            - Data Loss Prevention
+          scopes: 
+            - id: Data Security
+              aliases: 
+                - Discover, classify, and protect sensitive data
+                - Data protection and compliance
+
+        - id: Dataprep
+          aliases:
+            - 
+          scopes: 
+            - id: Data Cleaning and Preparation
+              aliases: 
+                - Visually explore, clean, and prepare data for analysis
+                - No-code data preparation
+
+        - id: Endpoints
+          aliases:
+            - 
+          scopes: 
+            - id: API Gateway
+              aliases: 
+                - Develop, deploy, and manage APIs
+                - Monitor API performance
+
+        - id: Firestore
+          aliases:
+            - Cloud Firestore
+          scopes: 
+            - id: NoSQL Database
+              aliases: 
+                - Build serverless applications
+                - Real-time data synchronization
+
+        - id: Cloud Functions
+          aliases:
+            - 
+          scopes: 
+            - id: Serverless Computing
+              aliases: 
+                - Event-driven functions
+                - Scalable pay-as-you-go functions
+
+        - id: Healthcare API
+          aliases:
+            - 
+          scopes: 
+            - id: Healthcare Data Management
+              aliases: 
+                - Secure and compliant healthcare data exchange
+                - Interoperability in healthcare
+
+        - id: Identity Platform
+          aliases:
+            - 
+          scopes: 
+            - id: Identity and Access Management
+              aliases: 
+                - Secure authentication and identity management
+                - User management and provisioning
+
+        - id: IoT Core
+          aliases:
+            - 
+          scopes: 
+            - id: IoT Device Management
+              aliases: 
+                - Connect, manage, and ingest data from IoT devices
+                - Secure device connection and management
+
+        - id: KMS
+          aliases:
+            - Key Management Service 
+          scopes: 
+            - id: Encryption Key Management
+              aliases: 
+                - Manage cryptographic keys
+                - Secure cloud assets and data
+
+        - id: Natural Language
+          aliases:
+            - Cloud Natural Language
+          scopes: 
+            - id: Natural Language Processing
+              aliases: 
+                - Analyze text for sentiment, entities, and syntax
+                - Understand and interpret text data
+
+        - id: Cloud Run
+          aliases:
+            - 
+          scopes: 
+            - id: Containerized Applications
+              aliases: 
+                - Fully managed compute platform
+                - Run stateless containers
+
+        - id: Cloud Scheduler
+          aliases:
+            - 
+          scopes: 
+            - id: Job Scheduling
+              aliases: 
+                - Schedule virtually any job
+                - Managed cron service
+
+        - id: Security Command Center
+          aliases:
+            - 
+          scopes: 
+            - id: Security and Risk Management
+              aliases: 
+                - Comprehensive security and data risk platform
+                - Detect threats and vulnerabilities
+
+        - id: Spanner
+          aliases:
+            - Cloud Spanner
+          scopes: 
+            - id: Horizontally Scalable Database
+              aliases: 
+                - Fully managed relational database
+                - Global consistency and scalability
+
+        - id: Cloud SQL
+          aliases:
+            - 
+          scopes: 
+            - id: Relational Database Service
+              aliases: 
+                - Fully managed database service
+                - MySQL, PostgreSQL, and SQL Server support
+
+        - id: Cloud Storage
+          aliases:
+            - 
+          scopes: 
+            - id: Object Storage
+              aliases: 
+                - Unified object storage
+                - Durable and scalable storage service
+
+        - id: Talent Solution
+          aliases:
+            - 
+          scopes: 
+            - id: Job Search and Discovery
+              aliases: 
+                - AI-powered job search and recruitment
+                - Enhance job seeker experiences
+
+        - id: Cloud Tasks
+          aliases:
+            - 
+          scopes: 
+            - id: Task Management
+              aliases: 
+                - Asynchronous task execution
+                - Manage distributed tasks
+
+        - id: TPU
+          aliases:
+            - Cloud TPU
+          scopes: 
+            - id: Accelerated Computing
+              aliases: 
+                - Tensor Processing Units
+                - Machine learning workloads acceleration
+
+        - id: Cloud Translation
+          aliases:
+            - 
+          scopes: 
+            - id: Language Translation
+              aliases: 
+                - Translate text among thousands of language pairs
+                - Support for dynamic and static text translation
+
+        - id: Cloud Video Intelligence
+          aliases:
+            - 
+          scopes: 
+            - id: Video Analysis
+              aliases: 
+                - Automatically extract metadata from video files
+                - Detect objects and actions in videos
+
+        - id: Cloud Vision
+          aliases:
+            - 
+          scopes: 
+            - id: Image Analysis
+              aliases: 
+                - Derive insight from images
+                - Detect objects, faces, and landmarks
+
+        - id: Cloud VPN
+          aliases:
+            - 
+          scopes: 
+            - id: Network Connectivity
+              aliases: 
+                - Securely connect your on-premises network to your GCP VPC
+                - Encrypted IPsec VPN connection
+
+        - id: Compute Engine
+          aliases:
+            - 
+          scopes: 
+            - id: Virtual Machines
+              aliases: 
+                - scalable VMs
+
+        - id: Dataflow
+          aliases:
+            - 
+          scopes: 
+            - id: Stream and Batch Data Processing
+              aliases: 
+                - Fully managed service for transforming and enriching data
+                - Unified stream and batch data processing
+
+        - id: Dataproc
+          aliases:
+            - 
+          scopes: 
+            - id: Data Processing
+              aliases: 
+                - Managed Apache Hadoop, Spark, and HBase service
+                - Fast, easy, and cost-effective data processing
+
+        - id: Deployment Manager
+          aliases:
+            - 
+          scopes: 
+            - id: Infrastructure as Code
+              aliases: 
+                - Automate the creation and management of GCP resources
+                - Template-driven deployment
+
+        - id: Dialogflow
+          aliases:
+            - 
+          scopes: 
+            - id: Conversational Interfaces
+              aliases: 
+                - Build natural and rich conversational experiences
+                - Develop AI-powered chatbots and voicebots
+
+        - id: Google Drive
+          aliases:
+            - 
+          scopes: 
+            - id: Cloud Storage
+              aliases: 
+                - Secure cloud file storage
+
+        - id: Firebase
+          aliases:
+            - 
+          scopes: 
+            - id: Mobile and Web Application Development
+              aliases: 
+                - Build and run successful apps
+                - Improve app quality and drive user engagement
+
+        - id: IAM
+          aliases:
+            - Identity and Access Management
+          scopes: 
+            - id: Access Control
+              aliases: 
+                - Manage access control and permissions for GCP resources
+                - Fine-grained access control
+
+        - id: Instance Groups
+          aliases:
+            - 
+          scopes: 
+            - id: Resource Management
+              aliases: 
+                - Manage collections of VM instances
+                - Autoscaling and load balancing
+
+        - id: Load Balancers
+          aliases:
+            - 
+          scopes: 
+            - id: Traffic Management
+              aliases: 
+                - Distribute network or application traffic
+                - High availability, scalability, and low latency
+
+        - id: Looker
+          aliases:
+            - 
+          scopes: 
+            - id: Business Intelligence
+              aliases: 
+                - Data exploration and insights
+                - Business analytics and visualization
+
+        - id: Memorystore
+          aliases:
+            - 
+          scopes: 
+            - id: In memory Data Store
+              aliases: 
+                - In-memory Data Store
+                - Fully managed Redis and Memcached
+                - High-performance, scalable in-memory data store
+
+        - id: Operations Suite
+          aliases:
+            - formerly Stackdriver
+          scopes: 
+            - id: Monitoring, Logging, and Diagnostics
+              aliases: 
+                - Manage system health, performance, and reliability
+                - Monitoring and management for services, containers, applications, and infrastructure
+
+        - id: Private Catalog
+          aliases:
+            - 
+          scopes: 
+            - id: Service Catalog
+              aliases: 
+                - Share internal solutions securely
+                - Governed catalog of internal resources and solutions
+
+        - id: Pub/Sub
+          aliases:
+            - 
+          scopes: 
+            - id: Messaging and Ingestion
+              aliases: 
+                - Real-time messaging service
+                - Large-scale event ingestion and delivery
+
+        - id: Recommender
+          aliases:
+            - 
+          scopes: 
+            - id: Recommendations Engine
+              aliases: 
+                - Provide personalized product recommendations
+                - Machine learning-based recommendations
+
+        - id: Secret Manager
+          aliases:
+            - 
+          scopes: 
+            - id: Secret Management
+              aliases: 
+                - Centralized secret storage
+
+        - id: Security Command Center
+          aliases:
+            - 
+          scopes: 
+            - id: Security and Risk Management
+              aliases: 
+                - Comprehensive security and data risk platform
+                - Detect threats and vulnerabilities
+
+        - id: Service Directory
+          aliases:
+            - 
+          scopes: 
+            - id: Service Management
+              aliases: 
+                - Centralized service registry
+
+        - id: Speech-to-Text
+          aliases:
+            - 
+          scopes: 
+            - id: Speech Recognition
+              aliases: 
+                - Convert audio to text
+                - Accurate speech recognition
+
+        - id: Text-to-Speech
+          aliases:
+            - 
+          scopes: 
+            - id: Speech Synthesis
+              aliases: 
+                - Convert text into natural-sounding speech
+                - Lifelike speech generation
+
+        - id: VM Instances
+          aliases:
+            - 
+          scopes: 
+            - id: Compute
+              aliases: 
+                - on-demand computing resources
+                - Secure and customizable compute instances
+
+        - id: VPC Network
+          aliases:
+            - 
+          scopes: 
+            - id: Networking
+              aliases: 
+                - flexible networking
+                - Private network
+
+        - id: Workflows
+          aliases:
+            - 
+          scopes: 
+            - id: Workflow Orchestration
+              aliases: 
+                - Serverless orchestration of services and APIs
+                - Automate and connect cloud services
+
+- id: HashiCorp
+  products:
+    - id: Terraform
+      aliases: []
+      scopes:
+        - id: IaC
+          aliases:
+            - Infrastructure as Code
+      features: []
+
+    - id: Vault
+      aliases: []
+      scopes:
+        - id: Secret management
+          aliases:
+            - Secret storage
+      features: []
+
+    - id: Consul
+      aliases: []
+      scopes:
+        - id: Service Networking
+          aliases:
+            - Network Automation
+            - Service Discovery
+      features: []
+
+    - id: Nomad
+      aliases: []
+      scopes:
+        - id: Workload Orchestration
+          aliases:
+            - Application Deployment
+            - Container Management
+      features: []
+
+    - id: Vagrant
+      aliases: []
+      scopes:
+        - id: Development Environments
+          aliases:
+            - Portable Development Environments
+      features: []
+
+    - id: Packer
+      aliases: []
+      scopes:
+        - id: Image Creation
+          aliases:
+            - Machine Image Automation
+      features: []
+
+    - id: HashiCorp Boundary
+      aliases: []
+      scopes:
+        - id: Access Management
+          aliases:
+            - Identity-based Access
+      features: []
+
+    - id: Waypoint
+      aliases: []
+      scopes:
+        - id: Application Deployment
+          aliases:
+            - Modern Deployment Workflow
+      features: []
+- id: Misc
+  products:
+    - id: misc
+      aliases: 
+        - 
+      scopes:
+        - id: Containerization
+        - id: Dependency Management
+        - id: Repository Management
+        - id: Diagnostics
+        - id: IAM
+        - id: Infrastructure
+        - id: Ingress Controller
+        - id: Key Storage
+        - id: Message broker
+        - id: SRE
+        - id: Mobile
+        - id: Monitoring
+        - id: Network IPA
+        - id: Queuing Systems
+        - id: RDBMS
+        - id: Reverse Proxies
+        - id: Scripting
+        - id: Security
+        - id: Virtualization
+        - id: Web Servers 
+
+    - id: ArgoCD
+      aliases: 
+        - Argo CD
+      scopes:
+        - id: CI CD
+          aliases:
+            - Continious integration
+            - Continious development
+
+    - id: Bamboo
+      aliases:
+        - 
+      scopes:
+        - id: CI CD
+          aliases:
+            - Continuous integration
+            - Continuous deployment
+
+    - id: BB Pipelines
+      aliases:
+        - Bitbucket Pipelines
+      scopes:
+        - id: CI CD
+          aliases:
+            - Cloud-based CI/CD
+            - Code deployment
+
+    - id: Buddy
+      aliases:
+        - 
+      scopes:
+        - id: CI CD
+          aliases:
+            - Continuous deployment
+            - Web development automation
+
+    - id: Buildbot
+      aliases:
+        - 
+      scopes:
+        - id: CI CD
+          aliases:
+            - Python-based software development
+            - Continuous integration system
+
+    - id: CircleCI
+      aliases:
+        - 
+      scopes:
+        - id: CI CD
+          aliases:
+            - Automated testing and deployment
+            - Integration and delivery platform
+
+    - id: Codefresh
+      aliases:
+        - 
+      scopes:
+        - id: CI CD
+          aliases:
+            - Docker-native CI/CD
+            - Kubernetes deployment
+
+    - id: Concourse
+      aliases:
+        - 
+      scopes:
+        - id: CI CD
+          aliases:
+            - Continuous thing-doer
+            - Pipelines and tasks
+
+    - id: Drone.io
+      aliases:
+        - 
+      scopes:
+        - id: CI CD
+          aliases:
+            - Continuous delivery
+            - Container-native platform
+
+    - id: GitHub
+      aliases:
+        - 
+      scopes:
+        - id: Version Control
+          aliases:
+            - Source code management
+            - Collaboration platform
+
+    - id: GitHub Actions
+      aliases:
+        - 
+      scopes:
+        - id: CI CD
+          aliases:
+            - Automation of workflows
+            - GitHub integration
+
+    - id: GitLab
+      aliases:
+        - 
+      scopes:
+        - id: CI CD
+          aliases:
+            - Complete DevOps platform
+            - Automated testing and deployment
+
+    - id: GoCD
+      aliases:
+        - 
+      scopes:
+        - id: CI CD
+          aliases:
+            - Open-source release management
+            - Continuous delivery service
+
+    - id: Groovy
+      aliases:
+        - Apache Groovy
+      scopes:
+        - id: Programming Language
+          aliases:
+            - Object-oriented language
+            - Java platform
+
+    - id: Harness
+      aliases:
+        - 
+      scopes:
+        - id: CI CD
+          aliases:
+            - Continuous delivery as a service
+            - Machine learning-driven deployments
+
+    - id: Jenkins
+      aliases:
+        - 
+      scopes:
+        - id: CI CD
+          aliases:
+            - Open-source automation server
+            - Continuous integration and delivery
+
+    - id: Octopus
+      aliases:
+        - Octopus Deploy
+      scopes:
+        - id: CI CD
+          aliases:
+            - Release management
+            - Deployment automation
+
+    - id: Pulumi
+      aliases:
+        - 
+      scopes:
+        - id: Infrastructure as Code
+          aliases:
+            - Cloud software development
+            - Modern infrastructure management
+
+    - id: Selenium
+      aliases:
+        - 
+      scopes:
+        - id: Testing
+          aliases:
+            - Browser automation
+            - Web application testing framework
+
+    - id: Semaphore
+      aliases:
+        - 
+      scopes:
+        - id: CI CD
+          aliases:
+            - Continuous integration and deployment
+            - High-performance pipelines
+
+    - id: Spinnaker
+      aliases:
+        - 
+      scopes:
+        - id: CI CD
+          aliases:
+            - Multi-cloud continuous delivery platform
+            - Automated release management
+
+    - id: TeamCity
+      aliases:
+        - Team City
+      scopes:
+        - id: CI CD
+          aliases:
+            - Build management and continuous integration server
+            - Java-based configuration
+
+    - id: Tekton
+      aliases:
+        - 
+      scopes:
+        - id: CI CD
+          aliases:
+            - Kubernetes-native CI/CD framework
+            - Build, test, and deploy across cloud providers
+
+    - id: TravisCI
+      aliases:
+        - Travis CI
+      scopes:
+        - id: CI CD
+          aliases:
+            - Hosted continuous integration service
+            - Automation of builds and tests
+
+    - id: Wercker
+      aliases:
+        - 
+      scopes:
+        - id: CI CD
+          aliases:
+            - Automate builds and deployments
+            - Docker-based pipelines
+
+    - id: Longhorn
+      aliases:
+        - 
+      scopes:
+        - id: Storage
+          aliases:
+            - Cloud-native distributed storage platform
+            - Kubernetes block storage
+
+    - id: OpenCost
+      aliases:
+        - 
+      scopes:
+        - id: Cloud Management
+          aliases:
+            - Kubernetes cost monitoring and management
+            - Cloud cost analysis
+
+    - id: Docker
+      aliases:
+        - 
+      scopes:
+        - id: Containerization
+          aliases:
+            - Software platform for building applications based on containers
+            - Package, ship, and run applications
+
+    - id: Docker Compose
+      aliases:
+        - 
+      scopes:
+        - id: Containerization
+          aliases:
+            - Define and run multi-container Docker applications
+            - YAML file configuration
+
+    - id: Helm
+      aliases:
+        - 
+      scopes:
+        - id: Kubernetes
+          aliases:
+            - Package manager for Kubernetes
+            - Manage Kubernetes applications
+
+    - id: Kubernetes
+      aliases:
+        - K8s
+      scopes:
+        - id: Container Orchestration
+          aliases:
+            - Manage containerized applications
+            - Automatic deployment, scaling, and management of containerized applications
+
+    - id: Apache Ivy
+      aliases:
+        - 
+      scopes:
+        - id: Build Tools
+          aliases:
+            - Dependency manager integrated with Ant
+            - Manage binary dependencies
+
+    - id: Bower
+      aliases:
+        - 
+      scopes:
+        - id: Package Management
+          aliases:
+            - Web package manager
+            - Manage assets, frameworks, libraries, and utilities
+
+    - id: Bundler
+      aliases:
+        - 
+      scopes:
+        - id: Ruby
+          aliases:
+            - Manage Ruby application dependencies
+            - Gem dependency management
+
+    - id: Cargo
+      aliases:
+        - 
+      scopes:
+        - id: Rust
+          aliases:
+            - Rust package manager
+            - Manage Rust project dependencies
+
+    - id: CocoaPods
+      aliases:
+        - 
+      scopes:
+        - id: iOS
+          aliases:
+            - Dependency manager for Swift and Objective-C Cocoa projects
+            - Manage library dependencies for iOS projects
+
+    - id: Composer
+      aliases:
+        - 
+      scopes:
+        - id: PHP
+          aliases:
+            - Dependency manager for PHP
+            - Manage PHP package dependencies
+
+    - id: Conan
+      aliases:
+        - 
+      scopes:
+        - id: C/C++
+          aliases:
+            - C/C++ package manager
+            - Manage dependencies in C/C++ development
+
+    - id: dep
+      aliases:
+        - 
+      scopes:
+        - id: Go
+          aliases:
+            - Go dependency management tool
+            - Package management for Go
+
+    - id: Go Modules
+      aliases:
+        - 
+      scopes:
+        - id: Go
+          aliases:
+            - Module system for Go
+            - Manage dependencies and versions
+
+    - id: Gradle
+      aliases:
+        - 
+      scopes:
+        - id: Build Tools
+          aliases:
+            - Build automation tool
+            - Manage dependencies for multiple languages and frameworks
+
+    - id: JFrog Artifactory
+      aliases:
+        - 
+      scopes:
+        - id: Artifact Repository
+          aliases:
+            - Binary repository manager
+            - Store, manage, and secure artifacts
+
+    - id: Maven
+      aliases:
+        - Apache Maven
+      scopes:
+        - id: Build Tools
+          aliases:
+            - Software project management and comprehension tool
+            - Build and manage projects in Java and other languages
+
+    - id: npm
+      aliases:
+        - 
+      scopes:
+        - id: JavaScript
+          aliases:
+            - Node package manager
+            - Manage JavaScript packages
+
+    - id: Nuget
+      aliases:
+        - 
+      scopes:
+        - id: .NET
+          aliases:
+            - Package manager for .NET
+            - Manage .NET libraries and tools
+
+    - id: Paket
+      aliases:
+        - 
+      scopes:
+        - id: .NET
+          aliases:
+            - Dependency manager for .NET projects
+            - Manage .NET and F# dependencies
+
+    - id: pip
+      aliases:
+        - 
+      scopes:
+        - id: Python
+          aliases:
+            - Python package installer
+            - Manage Python packages
+
+    - id: Poetry
+      aliases:
+        - 
+      scopes:
+        - id: Python
+          aliases:
+            - Python dependency management and packaging
+            - Manage Python project dependencies
+
+    - id: Tilt
+      aliases:
+        - 
+      scopes:
+        - id: Development Environments
+          aliases:
+            - Local Kubernetes development
+            - Streamline microservices development
+
+    - id: Vite
+      aliases:
+        - 
+      scopes:
+        - id: Web Development
+          aliases:
+            - Front-end build tool
+            - Faster development and build tool
+
+    - id: Webpack
+      aliases:
+        - 
+      scopes:
+        - id: JavaScript
+          aliases:
+            - Module bundler
+            - Asset management and optimization
+
+    - id: Yarn
+      aliases:
+        - 
+      scopes:
+        - id: Package Management
+          aliases:
+            - Fast, reliable, and secure dependency management
+            - JavaScript package manager
+
+    - id: TFS
+      aliases:
+        - Team Foundation Server
+      scopes:
+        - id: Version Control
+          aliases:
+            - Source code management
+            - Project management tool
+
+    - id: Burp
+      aliases:
+        - Burp Suite
+      scopes:
+        - id: Web Security
+          aliases:
+            - Web application security testing
+            - Security and vulnerability detection
+
+    - id: Charles
+      aliases:
+        - Charles Proxy
+      scopes:
+        - id: Network Debugging
+          aliases:
+            - HTTP proxy / HTTP monitor / Reverse Proxy
+            - Monitor network calls and debug network traffic
+
+    - id: CommView
+      aliases:
+        - 
+      scopes:
+        - id: Network Analysis
+          aliases:
+            - Network monitoring and analysis
+            - Capture and analyze network packets
+
+    - id: Fiddler
+      aliases:
+        - 
+      scopes:
+        - id: Web Debugging
+          aliases:
+            - Web debugging proxy
+            - Monitor, inspect, and modify web traffic
+
+    - id: Insomnia
+      aliases:
+        - 
+      scopes:
+        - id: API Development
+          aliases:
+            - REST and GraphQL Client
+            - Create and test HTTP requests and APIs
+
+    - id: JMeter
+      aliases:
+        - Apache JMeter
+      scopes:
+        - id: Performance Testing
+          aliases:
+            - Load testing tool
+            - Test web applications performance
+
+    - id: Blazemeter
+      aliases:
+        - 
+      scopes:
+        - id: Performance Testing
+          aliases:
+            - Cloud-based load testing service
+            - Compatibility with JMeter
+
+    - id: Postman
+      aliases:
+        - 
+      scopes:
+        - id: API Development
+          aliases:
+            - API testing tool
+            - Build, test, and document APIs
+
+    - id: SOAP UI
+      aliases:
+        - 
+      scopes:
+        - id: API Testing
+          aliases:
+            - Web services testing tool
+            - Test SOAP and REST APIs
+
+    - id: Wireshark
+      aliases:
+        - 
+      scopes:
+        - id: Network Analysis
+          aliases:
+            - Network protocol analyzer
+            - Capture and interactively browse network traffic
+
+    - id: Yandex Tank
+      aliases:
+        - Yandex.Tank
+      scopes:
+        - id: Performance Testing
+          aliases:
+            - Load testing tool
+            - Scalable load testing tool by Yandex
+
+    - id: Ansible
+      aliases:
+        - 
+      scopes:
+        - id: Automation
+          aliases:
+            - IT automation tool
+            - Automate cloud provisioning, configuration management, and application deployment
+
+    - id: Darwin
+      aliases:
+        - 
+      scopes:
+        - id: Operating System
+          aliases:
+            - UNIX-like operating system
+            - Core of macOS
+
+    - id: DNS
+      aliases:
+        - Domain Name System
+      scopes:
+        - id: Networking
+          aliases:
+            - Hierarchical decentralized naming system for computers, services, or other resources connected to the Internet or a private network
+
+    - id: Eclipse
+      aliases:
+        - 
+      scopes:
+        - id: Development Environment
+          aliases:
+            - Integrated development environment (IDE)
+            - Supports multiple programming languages
+
+    - id: FreeBSD
+      aliases:
+        - 
+      scopes:
+        - id: Operating System
+          aliases:
+            - Free and open-source Unix-like OS
+            - Server, desktop, and embedded use
+
+    - id: Git
+      aliases:
+        - 
+      scopes:
+        - id: Version Control
+          aliases:
+            - Distributed version control system
+            - Track changes in source code during software development
+
+    - id: Hyper-V
+      aliases:
+        - 
+      scopes:
+        - id: Virtualization
+          aliases:
+            - Virtualization platform by Microsoft
+            - Create and manage virtual machines
+
+    - id: Ingress
+      aliases:
+        - Kubernetes Ingress
+      scopes:
+        - id: Kubernetes
+          aliases:
+            - API object that manages external access to services
+            - HTTP and HTTPS routing
+
+    - id: Istio
+      aliases:
+        - 
+      scopes:
+        - id: Service Mesh
+          aliases:
+            - Connect, secure, control, and observe services
+            - Open-source service mesh
+
+    - id: Linux
+      aliases:
+        - 
+      scopes:
+        - id: Operating System
+          aliases:
+            - Free and open-source Unix-like operating system kernel
+            - Widely used across servers, desktops, and embedded systems
+
+    - id: MongoDB
+      aliases:
+        - 
+      scopes:
+        - id: Database
+          aliases:
+            - NoSQL database
+            - Document-oriented database
+
+    - id: vSphere
+      aliases:
+        - 
+      scopes:
+        - id: Virtualization
+          aliases:
+            - Cloud computing virtualization platform
+            - Server virtualization and management
+
+    - id: Windows
+      aliases:
+        - 
+      scopes:
+        - id: Operating System
+          aliases:
+            - Microsoft Windows OS
+            - Personal computer operating system
+
+    - id: Windows Server
+      aliases:
+        - 
+      scopes:
+        - id: Operating System
+          aliases:
+            - Server operating system
+
+    - id: Ansible
+      aliases:
+        - 
+      scopes:
+        - id: Automation
+          aliases:
+            - IT automation platform
+            - Simplify cloud provisioning, configuration management, app deployment
+
+    - id: Bicep
+      aliases:
+        - 
+      scopes:
+        - id: Infrastructure as Code
+          aliases:
+            - Domain-specific language for deploying Azure resources
+            - Simplify the authoring of Azure Resource Manager templates
+
+    - id: Chef
+      aliases:
+        - 
+      scopes:
+        - id: Automation
+          aliases:
+            - Configuration management tool
+            - Automate how infrastructure is deployed, configured, and managed
+
+    - id: Crossplane
+      aliases:
+        - 
+      scopes:
+        - id: Cloud Native Computing
+          aliases:
+            - Open-source multicloud control plane
+            - Provision and manage cloud infrastructure and services
+
+    - id: Pulumi
+      aliases:
+        - 
+      scopes:
+        - id: Infrastructure as Code
+          aliases:
+            - Modern infrastructure as code platform
+            - Use familiar programming languages to define cloud resources
+
+    - id: Puppet
+      aliases:
+        - 
+      scopes:
+        - id: Automation
+          aliases:
+            - Configuration management tool
+            - Manage and automate more complex infrastructure across the lifecycle
+
+    - id: SaltStack
+      aliases:
+        - Salt
+      scopes:
+        - id: Automation
+          aliases:
+            - Event-driven automation software
+            - Infrastructure management and data-driven orchestration
+
+    - id: Boundary
+      aliases:
+        - 
+      scopes:
+        - id: Security
+          aliases:
+            - Secure access to hosts and services
+            - Remote access management for dynamic infrastructure
+
+    - id: Okta
+      aliases:
+        - 
+      scopes:
+        - id: Identity and Access Management
+          aliases:
+            - Identity management service
+            - Secure user authentication
+
+    - id: Auth0
+      aliases:
+        - 
+      scopes:
+        - id: Identity and Access Management
+          aliases:
+            - Platform for authentication and authorization
+            - Simplify and secure user access
+
+    - id: Ping Identity
+      aliases:
+        - 
+      scopes:
+        - id: Identity and Access Management
+          aliases:
+            - Secure identity solutions
+            - Single sign-on and identity management
+
+    - id: OneLogin
+      aliases:
+        - 
+      scopes:
+        - id: Identity and Access Management
+          aliases:
+            - Cloud-based identity and access management
+            - Simplify business logins
+
+    - id: Oracle Identity Management
+      aliases:
+        - 
+      scopes:
+        - id: Identity and Access Management
+          aliases:
+            - Identity governance, access management, and directory services
+            - Secure and manage identities
+
+    - id: SailPoint
+      aliases:
+        - 
+      scopes:
+        - id: Identity Governance
+          aliases:
+            - Identity governance solutions
+            - Visibility and control over user access
+
+    - id: Kafka
+      aliases:
+        - Apache Kafka
+      scopes:
+        - id: Messaging System
+          aliases:
+            - Distributed streaming platform
+            - Real-time data feeds
+
+    - id: CertManager
+      aliases:
+        - 
+      scopes:
+        - id: Kubernetes
+          aliases:
+            - Automate management of TLS certificates in Kubernetes
+            - X.509 certificate management
+
+    - id: DigitalOcean
+      aliases:
+        - 
+      scopes:
+        - id: Cloud Infrastructure
+          aliases:
+            - Cloud computing platform
+            - Simplify cloud infrastructure for developers
+
+    - id: ELK
+      aliases:
+        - Elasticsearch Logstash Kibana
+      scopes:
+        - id: Logging and Monitoring
+          aliases:
+            - Centralize and analyze logs
+            - Search, analyze, and visualize data in real time
+
+    - id: ExternalDNS
+      aliases:
+        - 
+      scopes:
+        - id: Kubernetes
+          aliases:
+            - Synchronize exposed Kubernetes services with DNS providers
+            - DNS record management for access to Kubernetes services
+
+    - id: Harbor
+      aliases:
+        - 
+      scopes:
+        - id: Container Registry
+          aliases:
+            - Open-source trusted cloud native registry
+            - Securely store and scan container images
+
+    - id: IIS
+      aliases:
+        - Internet Information Services
+      scopes:
+        - id: Web Server
+          aliases:
+            - Extendable web server created by Microsoft
+            - Host web applications and services
+
+    - id: k3s
+      aliases:
+        - 
+      scopes:
+        - id: Kubernetes
+          aliases:
+            - Lightweight Kubernetes
+            - Easy to install, half the memory, all in a binary less than 100 MB
+
+    - id: Loki
+      aliases:
+        - 
+      scopes:
+        - id: Logging
+          aliases:
+            - Like Prometheus, but for logs
+            - Horizontally scalable, highly available, multi-tenant log aggregation system
+
+    - id: NAT
+      aliases:
+        - Network Address Translation
+      scopes:
+        - id: Networking
+          aliases:
+            - Method of remapping IP address space
+            - Enable private IP networks to connect to the internet
+
+    - id: Node Exporter
+      aliases:
+        - 
+      scopes:
+        - id: Monitoring
+          aliases:
+            - Prometheus exporter for hardware and OS metrics
+            - Expose detailed system metrics
+
+    - id: Proxy
+      aliases:
+        - 
+      scopes:
+        - id: Networking
+          aliases:
+            - Intermediate server between users and the internet
+            - Facilitate requests and responses
+
+    - id: Sentry
+      aliases:
+        - 
+      scopes:
+        - id: Error Tracking
+          aliases:
+            - Application monitoring platform
+            - Track and prioritize errors in real-time
+
+    - id: SumoLogic
+      aliases:
+        - 
+      scopes:
+        - id: Logging and Monitoring
+          aliases:
+            - Cloud-based log management and analytics service
+            - Analyze and visualize machine data
+
+    - id: Telegram alerting
+      aliases:
+        - 
+      scopes:
+        - id: Alerting
+          aliases:
+            - Notifications via Telegram
+            - Instant alerts using Telegram bot
+
+    - id: Traefik
+      aliases:
+        - 
+      scopes:
+        - id: Ingress Controller
+          aliases:
+            - Cloud-native application proxy
+            - Simplify networking complexity
+
+    - id: VPN Gateway
+      aliases:
+        - 
+      scopes:
+        - id: Networking
+          aliases:
+            - Secure and encrypted connection over a less secure network
+            - Connect networks securely over the internet
+
+    - id: XUnit
+      aliases:
+        - 
+      scopes:
+        - id: Testing
+          aliases:
+            - Unit testing framework for .NET
+            - Write tests in .NET languages
+
+    - id: Nginx
+      aliases:
+        - 
+      scopes:
+        - id: Web Server
+          aliases:
+            - High-performance HTTP server and reverse proxy
+            - Also a mail proxy server
+
+    - id: HAProxy
+      aliases:
+        - HAProxy Ingress
+      scopes:
+        - id: Ingress Controller
+          aliases:
+            - HAProxy based ingress controller
+            - Load balancing for Kubernetes services
+
+    - id: Istio
+      aliases:
+        - 
+      scopes:
+        - id: Service Mesh
+          aliases:
+            - Connect, secure, control, and observe services
+            - Layer 7 load balancer and traffic management
+
+    - id: Kong
+      aliases:
+        - 
+      scopes:
+        - id: API Gateway
+          aliases:
+            - Cloud-native, fast, scalable, and distributed Microservice Abstraction Layer
+            - Manage microservices and APIs
+
+    - id: Ambassador
+      aliases:
+        - 
+      scopes:
+        - id: API Gateway
+          aliases:
+            - Open-source Kubernetes-native API Gateway
+            - Built on the Envoy Proxy
+
+    - id: Contour
+      aliases:
+        - 
+      scopes:
+        - id: Ingress Controller
+          aliases:
+            - High performance Ingress controller
+            - Utilizes Envoy for traffic management
+
+    - id: Citrix Ingress
+      aliases:
+        - Citrix Ingress Controller
+      scopes:
+        - id: Ingress Controller
+          aliases:
+            - Secure and accelerate applications in Kubernetes
+            - Leverage Citrix networking capabilities
+
+    - id: BIG-IP
+      aliases:
+        - BIG-IP Controller
+      scopes:
+        - id: Ingress Controller
+          aliases:
+            - Integrate F5 BIG-IP devices with Kubernetes
+            - Manage application services and traffic
+
+    - id: etcd
+      aliases:
+        - 
+      scopes:
+        - id: Database
+          aliases:
+            - Distributed reliable key-value store
+            - Used for configuration management and service discovery
+
+    - id: Zookeeper
+      aliases:
+        - Apache Zookeeper
+      scopes:
+        - id: Distributed Systems
+          aliases:
+            - Coordination service for distributed applications
+            - Manage configuration information, naming, synchronization, and grouping
+
+    - id: App Store
+      aliases:
+        - 
+      scopes:
+        - id: Mobile Distribution
+          aliases:
+            - Platform for distributing mobile applications
+            - iOS app distribution platform
+
+    - id: Fastlane
+      aliases:
+        - 
+      scopes:
+        - id: Mobile CI/CD
+          aliases:
+            - Automation tool for mobile app development
+            - Simplify Android and iOS deployment
+
+    - id: Google Play
+      aliases:
+        - 
+      scopes:
+        - id: Mobile Distribution
+          aliases:
+            - Platform for distributing mobile applications
+            - Android app distribution platform
+
+    - id: TestFlight
+      aliases:
+        - 
+      scopes:
+        - id: Beta Testing
+          aliases:
+            - Beta testing service for iOS applications
+            - Distribute beta and internal iOS apps
+
+    - id: AppDynamics
+      aliases:
+        - 
+      scopes:
+        - id: Application Performance Monitoring
+          aliases:
+            - APM and IT operations analytics
+            - Monitor application performance and user experiences
+
+    - id: Datadog
+      aliases:
+        - 
+      scopes:
+        - id: Monitoring and Security
+          aliases:
+            - Cloud-scale monitoring and analytics
+            - Monitor servers, databases, tools, and services
+
+    - id: Dynatrace
+      aliases:
+        - 
+      scopes:
+        - id: Application Performance Monitoring
+          aliases:
+            - Full stack monitoring
+            - APM, cloud infrastructure monitoring, AI-powered
+
+    - id: Grafana
+      aliases:
+        - 
+      scopes:
+        - id: Visualization and Analytics
+          aliases:
+            - Open-source platform for monitoring and observability
+            - Visualize metrics, logs, and traces from multiple sources
+
+    - id: Icinga
+      aliases:
+        - 
+      scopes:
+        - id: Monitoring
+          aliases:
+            - Open-source computer system and network monitoring application
+            - Monitor availability and performance
+
+    - id: InfluxDB
+      aliases:
+        - 
+      scopes:
+        - id: Database
+          aliases:
+            - Time series database
+            - Store and manage time-series data
+
+    - id: LogicMonitor
+      aliases:
+        - 
+      scopes:
+        - id: Infrastructure Monitoring
+          aliases:
+            - Automated IT performance monitoring
+            - Monitor networks, servers, and applications
+
+    - id: Nagios
+      aliases:
+        - 
+      scopes:
+        - id: Monitoring
+          aliases:
+            - IT infrastructure monitoring and alerting system
+            - Monitor systems, networks, and infrastructure
+
+    - id: New Relic
+      aliases:
+        - 
+      scopes:
+        - id: Observability
+          aliases:
+            - Performance monitoring and management
+            - Analyze and troubleshoot application performance
+
+    - id: Prometheus
+      aliases:
+        - 
+      scopes:
+        - id: Monitoring and Alerting
+          aliases:
+            - Open-source monitoring system with a dimensional data model
+            - Collect and store metrics as time series data
+
+    - id: PRTG
+      aliases:
+        - PRTG Network Monitor
+      scopes:
+        - id: Network Monitoring
+          aliases:
+            - Monitor network availability and performance
+            - Comprehensive network monitoring
+
+    - id: Sensu
+      aliases:
+        - 
+      scopes:
+        - id: Monitoring
+          aliases:
+            - Comprehensive monitoring framework
+            - Monitor servers, services, application health, and business KPIs
+
+    - id: SolarWinds
+      aliases:
+        - 
+      scopes:
+        - id: IT Management Software
+          aliases:
+            - Network and infrastructure management
+            - Monitor and manage network, system, and application performance
+
+    - id: Splunk
+      aliases:
+        - 
+      scopes:
+        - id: Data Platform
+          aliases:
+            - Turn data into action
+            - Search, monitor, analyze and visualize machine-generated big data
+
+    - id: Telegraf
+      aliases:
+        - 
+      scopes:
+        - id: Telemetry
+          aliases:
+            - Agent for collecting metrics and data
+            - Plugin-driven server agent for collecting and sending metrics
+
+    - id: Zabbix
+      aliases:
+        - 
+      scopes:
+        - id: Monitoring
+          aliases:
+            - Enterprise-class open source monitoring solution
+            - Monitor networks, servers, and applications
+
+    - id: FreeIPA
+      aliases:
+        - 
+      scopes:
+        - id: Identity Management
+          aliases:
+            - Open source identity management system
+            - Manage identities, policy, and audit
+
+    - id: Kafka
+      aliases:
+        - Apache Kafka
+      scopes:
+        - id: Messaging System
+          aliases:
+            - Distributed event streaming platform
+            - High-throughput, fault-tolerant messaging system
+
+    - id: RabbitMQ
+      aliases:
+        - 
+      scopes:
+        - id: Messaging System
+          aliases:
+            - Open source message broker
+            - Implements the Advanced Message Queuing Protocol (AMQP)
+
+    - id: PostgreSQL
+      aliases:
+        - 
+      scopes:
+        - id: Database
+          aliases:
+            - Open source object-relational database system
+            - Emphasizes extensibility and standards compliance
+
+    - id: MySQL
+      aliases:
+        - 
+      scopes:
+        - id: Database
+          aliases:
+            - World's most popular open source database
+            - Relational database management system
+
+    - id: Oracle Database
+      aliases:
+        - 
+      scopes:
+        - id: Database
+          aliases:
+            - Object-relational database management system
+            - Comprehensive features for data management
+
+    - id: Microsoft SQL Server
+      aliases:
+        - 
+      scopes:
+        - id: Database
+          aliases:
+            - Relational database management system
+            - Support for a wide variety of transaction processing, analytics applications, and business intelligence
+
+    - id: SQLite
+      aliases:
+        - 
+      scopes:
+        - id: Database
+          aliases:
+            - C-language library that implements a small, fast, self-contained, high-reliability SQL database engine
+            - Embedded SQL database engine
+
+    - id: MariaDB
+      aliases:
+        - 
+      scopes:
+        - id: Database
+          aliases:
+            - Community-developed fork of the MySQL relational database management system
+            - Intended to maintain free use under the GNU GPL
+
+    - id: IBM Db2
+      aliases:
+        - 
+      scopes:
+        - id: Database
+          aliases:
+            - Family of data management products, including database servers
+            - Enterprise-level database management
+
+    - id: SAP HANA
+      aliases:
+        - 
+      scopes:
+        - id: Database
+          aliases:
+            - In-memory, column-oriented, relational database management system
+            - Advanced analytics on multimodel data
+
+    - id: Sybase ASE
+      aliases:
+        - 
+      scopes:
+        - id: Database
+          aliases:
+            - High-performance relational database management system
+            - Enterprise data management
+
+    - id: Teradata
+      aliases:
+        - 
+      scopes:
+        - id: Database
+          aliases:
+            - Scalable database system designed for data warehousing and analytics
+            - Manage large volumes of data
+
+    - id: Nexus
+      aliases:
+        - Sonatype Nexus
+      scopes:
+        - id: Artifact Repository
+          aliases:
+            - Repository manager with universal support for popular component formats
+            - Manage software artifacts required for development
+
+    - id: Artifactory
+      aliases:
+        - JFrog Artifactory
+      scopes:
+        - id: Artifact Repository
+          aliases:
+            - Universal artifact repository manager
+            - Support for software packages, container images, and Helm charts
+
+    - id: GitLab Package Registry
+      aliases:
+        - 
+      scopes:
+        - id: Artifact Repository
+          aliases:
+            - Fully integrated package management solution
+            - Support for multiple package types within GitLab projects
+
+    - id: GitHub Packages
+      aliases:
+        - 
+      scopes:
+        - id: Artifact Repository
+          aliases:
+            - Host and manage packages alongside your code
+            - Integrated package hosting for software projects on GitHub
+
+    - id: Archiva
+      aliases:
+        - Apache Archiva
+      scopes:
+        - id: Artifact Repository
+          aliases:
+            - Build artifact repository manager
+            - Manage repository of build artifacts
+
+    - id: ProGet
+      aliases:
+        - 
+      scopes:
+        - id: Artifact Repository
+          aliases:
+            - Universal package manager
+            - Host and manage NuGet, npm, Bower, Maven, PHP Composer, and VSIX
+
+    - id: Cloudsmith
+      aliases:
+        - 
+      scopes:
+        - id: Artifact Repository
+          aliases:
+            - Fully managed package management SaaS
+            - Support for multiple technologies and CI/CD integration
+
+    - id: Packagecloud
+      aliases:
+        - 
+      scopes:
+        - id: Package Repository
+          aliases:
+            - Hosted package repository service
+            - Distribute software packages without managing servers
+
+    - id: Bash
+      aliases:
+        - Bourne Again SHell
+      scopes:
+        - id: Scripting Language
+          aliases:
+            - Unix shell and command language
+            - Default shell on Linux and macOS
+
+    - id: Lua
+      aliases:
+        - 
+      scopes:
+        - id: Programming Language
+          aliases:
+            - Lightweight, high-level scripting language
+            - Embeddable scripting language with extensible semantics
+
+    - id: PowerShell
+      aliases:
+        - 
+      scopes:
+        - id: Scripting Language
+          aliases:
+            - Task automation and configuration management framework
+            - Command-line shell and scripting language
+
+    - id: Python
+      aliases:
+        - 
+      scopes:
+        - id: Programming Language
+          aliases:
+            - High-level, interpreted, general-purpose programming language
+            - Emphasizes readability and productivity
+
+    - id: Zsh
+      aliases:
+        - Z Shell
+      scopes:
+        - id: Unix Shell
+          aliases:
+            - Powerful command line interpreter for scripting
+            - Extended Bourne shell with many improvements
+
+    - id: VMware Workstation
+      aliases:
+        - 
+      scopes:
+        - id: Virtualization
+          aliases:
+            - Desktop virtualization software
+            - Run multiple operating systems on a single PC
+
+    - id: Parallels Desktop
+      aliases:
+        - 
+      scopes:
+        - id: Virtualization
+          aliases:
+            - Software providing hardware virtualization for Macintosh computers
+            - Run Windows on Mac without rebooting
+
+    - id: Hyper-V
+      aliases:
+        - 
+      scopes:
+        - id: Virtualization
+          aliases:
+            - Hypervisor-based virtualization system for x86-64 systems
+            - Windows-native virtualization platform
+
+    - id: KVM
+      aliases:
+        - Kernel-based Virtual Machine
+      scopes:
+        - id: Virtualization
+          aliases:
+            - Linux kernel virtualization infrastructure
+            - Turn Linux into a hypervisor
+
+    - id: Xen
+      aliases:
+        - 
+      scopes:
+        - id: Virtualization
+          aliases:
+            - Open-source hypervisor
+            - Virtualization technology focused on performance and security
+
+    - id: QEMU
+      aliases:
+        - 
+      scopes:
+        - id: Virtualization
+          aliases:
+            - Generic and open source machine emulator and virtualizer
+            - Quick emulation for developing and testing software
+
+    - id: Vagrant
+      aliases:
+        - 
+      scopes:
+        - id: Development Environments
+          aliases:
+            - Build and manage virtual machine environments
+            - Portable development environments
+
+    - id: VirtualBox
+      aliases:
+        - 
+      scopes:
+        - id: Virtualization
+          aliases:
+            - Cross-platform virtualization software
+            - Run multiple operating systems on a single machine
+
+    - id: Apache
+      aliases:
+        - Apache HTTP Server
+      scopes:
+        - id: Web Server
+          aliases:
+            - Open-source HTTP server for modern operating systems
+            - Secure, efficient, and extensible server
